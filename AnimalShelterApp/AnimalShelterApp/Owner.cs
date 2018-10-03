@@ -27,5 +27,13 @@ namespace AnimalShelterApp
         public void AddPet(Animal animal) { }
         public bool Owns(Animal animal) { return false; }
 
+        public void UpdateDetails(string firstName, string lastName, string phoneNumber, string email) //new method for UpdateOwnerDetails
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
+        }
+
     }
 }

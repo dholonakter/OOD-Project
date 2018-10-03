@@ -20,6 +20,7 @@ namespace AnimalShelterApp
         public string RfidNumber { get { return this.rfidNumber; } set { this.rfidNumber = value; } }
         public DateTime DateBroughtIn { get { return this.dateBroughtIn; } }
         public string Description { set { this.description = value; } }
+        public Owner AnimalsOwner { get { return this.animalsOwner; } set { this.animalsOwner = value; } } //needed because of AdoptAnimal
 
         //constructor
         public Animal(string rfid, string location, string description) { }
