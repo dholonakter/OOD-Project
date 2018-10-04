@@ -45,7 +45,7 @@ namespace AnimalShelterApp
                 temp.Description = description;
             }
         }
-        public void RemoveAnimalDetails(string rfid) {
+        public void RemoveAnimalDetails(string rfid) {//should the animal be removed from owner's ownersAnimals list?
             Animal temp = GetAnimal(rfid);
             if(temp != null)
             {
@@ -64,7 +64,7 @@ namespace AnimalShelterApp
                 temp.UpdateDetails(firstName, lastName, phoneNumber, email);
             }
         }
-        public void RemoveOwnerDetails(int ownerID) {
+        public void RemoveOwnerDetails(int ownerID) { //should the owner's animal's animalsOwner be set to null?
             Owner temp = GetOwner(ownerID);
             if(temp != null)
             {
@@ -72,18 +72,25 @@ namespace AnimalShelterApp
             }
         }
         public bool AdoptAnimal(int ownerID, string rfid) {
-            Owner temp = GetOwner(ownerID);
-            Animal temp2 = GetAnimal(rfid);
-            if(temp != null && temp2 != null)
+            Owner owner = GetOwner(ownerID);
+            Animal animal = GetAnimal(rfid);
+            if (animal.IsAdoptable())
             {
-                temp.AddPet(temp2);
-                temp2.AnimalsOwner = temp;
-                return true;
-            }
+                if (owner != null && animal != null)
+                {
+                    owner.AddPet(animal);
+                    animal.AnimalsOwner = owner;
+                    return true;
+                }
+            }          
             return false;
         }
-        public double CalculateAdoptionFee(int ownerID, string rfid) { return 0; }
-        public string GenerateOverview() { return ""; }
+        public double CalculateAdoptionFee(int ownerID, string rfid) {
+            Owner owner = GetOwner(ownerID);
+            Animal animal = GetAnimal(rfid);
+            return animal.GetFee(owner);
+        }
+        public string GenerateOverview() { return ""; } //This still needs to be implemented!
         public Owner GetOwner(int ownerID) {
             foreach(Owner owner in myOwners)
             {

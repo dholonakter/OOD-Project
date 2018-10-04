@@ -22,6 +22,8 @@ namespace AnimalShelterApp
         }
 
         //methods
-        public void Walk() { }
+        public void Walk() {
+            lastDateWalked = DateTime.Now;
+        }
     }
 }

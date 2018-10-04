@@ -22,7 +22,12 @@ namespace AnimalShelterApp
         }
 
         //methods
-        public void AddCharacteristic(string characteristic) { }
+        public void AddCharacteristic(string characteristic) {
+            if(characteristic != null && characteristic != "")
+            {
+                this.characteristic.Add(characteristic);
+            }
+        }
 
     }
 }
