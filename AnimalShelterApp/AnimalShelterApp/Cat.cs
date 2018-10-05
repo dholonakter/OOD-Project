@@ -8,26 +8,29 @@ namespace AnimalShelterApp
 {
     class Cat : Animal
     {
-        //fields
-        private List<string> characteristic;
-
         //properties
-        public List<string> Characteristic { get { return this.characteristic; } }
+        public List<string> Characteristic { get; private set; }
 
         //constructor
         public Cat(string rfid, string location, string description) 
             : base(rfid, location, description)
         {
-
+            Characteristic = new List<string>();
         }
 
         //methods
-        public void AddCharacteristic(string characteristic) {
-            if(characteristic != null && characteristic != "")
-            {
-                this.characteristic.Add(characteristic);
-            }
+        public void AddCharacteristic(string characteristic)
+        {
+            Characteristic.Add(characteristic);
         }
 
+        public override double GetFee(Owner adoptingOwner)
+        {
+            if (AnimalsOwner != adoptingOwner)
+            {
+                return 20.0;
+            }
+            return 15.0;
+        }
     }
 }

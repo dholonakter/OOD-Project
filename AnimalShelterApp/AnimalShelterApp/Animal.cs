@@ -8,69 +8,43 @@ namespace AnimalShelterApp
 {
     abstract class Animal
     {
-        //fields
-        private string rfidNumber;
-        private DateTime dateBroughtIn;
-        private string location;
-        private string description;
+        // Properties
+        public string RfidNumber { get; } // Removed the setter as it's set only once upon registration (thus construction which is allowed).
+        public string Location { get; }
+        public DateTime DateBroughtIn { get; }
 
-        private Owner animalsOwner;
+        public string Description { get; private set; } // Depending on if it will ever change
 
-        //properties
-        public string RfidNumber { get { return this.rfidNumber; } set { this.rfidNumber = value; } }
-        public DateTime DateBroughtIn { get { return this.dateBroughtIn; } }
-        public string Description { set { this.description = value; } } //Doesn't this also need a "get"?
-        public Owner AnimalsOwner { get { return this.animalsOwner; } set { this.animalsOwner = value; } } //needed because of AdoptAnimal
+        public Owner AnimalsOwner { get; }
+
+        public TimeSpan Difference
+        {
+            get
+            {
+                return DateTime.Now - DateBroughtIn;
+            }
+        } // Added difference as read only private property such that it can be reused where needed.
 
         //constructor
-        public Animal(string rfid, string location, string description) {
-            this.rfidNumber = rfid;
-            this.location = location;
-            this.description = description;
-            this.dateBroughtIn = DateTime.Now;
+        public Animal(string rfid, string location, string description)
+        {
+            RfidNumber = rfid;
+            Location = location;
+            Description = description;
+            DateBroughtIn = DateTime.Now;
         }
 
         //methods
-        public double GetFee(Owner adoptingOwner) {
-            if(animalsOwner != adoptingOwner || animalsOwner == null)
-            {
-                if (this.IsAdoptable())
-                {
-                    if (this is Cat)
-                    {
-                        return 15;
-                    }
-                    if (this is Dog)
-                    {
-                        TimeSpan difference = DateTime.Now - dateBroughtIn;
-                        return 10 + 2 * difference.Days;
-                    }
-                }
-                return -1;
-            }
-            else
-            {
-                if (this is Cat)
-                {
-                    return 25;
-                }
-                if (this is Dog)
-                {
-                    return 20;
-                }
-            }
-            return -1;
-        }
+        // Made abstract as will be overridden by the concrete classes themselves
+        // to make proper use of polymorphism.
+        public abstract double GetFee(Owner adoptingOwner);
+
         public bool IsAdoptable() //needed for AdoptAnimal & GetFee method
         {
-            TimeSpan difference = DateTime.Now - dateBroughtIn;
-            if(difference.Days >= 20)
-            {
-                return true;
-            }
-            return false;
+            // Can instantly return the value of the test.
+            // Could also have been a read only property as it's derived 
+            // From other properties.
+            return Difference.Days > 20; // Changed to > 20 (Case states more than 20 days)
         }
-
-
     }
 }

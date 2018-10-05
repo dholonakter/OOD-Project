@@ -8,11 +8,8 @@ namespace AnimalShelterApp
 {
     class Dog : Animal
     {
-        //fields
-        private DateTime lastDateWalked;
-
         //properties
-        public DateTime LastDateWalked { get { return this.lastDateWalked; } }
+        public DateTime LastDateWalked { get; private set; }
 
         //constructor
         public Dog(string rfid, string location, string description) 
@@ -22,8 +19,19 @@ namespace AnimalShelterApp
         }
 
         //methods
-        public void Walk() {
-            lastDateWalked = DateTime.Now;
+        public void Walk()
+        {
+            LastDateWalked = DateTime.Now;
+        }
+
+        public override double GetFee(Owner adoptingOwner)
+        {
+            // Different owners or no owner.
+            if (AnimalsOwner != adoptingOwner)
+            {
+                return 20.0;
+            }
+            return 10.0 + 2 * Difference.Days;
         }
     }
 }
