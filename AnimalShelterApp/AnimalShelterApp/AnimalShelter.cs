@@ -21,16 +21,27 @@ namespace AnimalShelterApp
         //properties
 
         //constructor
-        public AnimalShelter() { }
+        public AnimalShelter(string name, string address, string phoneNumber, string email)
+        {
+            myOwners = new List<Owner>();
+            myAnimals = new List<Animal>();
+
+            this.email = email;
+            this.address = address;
+            this.phoneNumber = phoneNumber;
+            this.name = name;
+        }
 
         //methods
-        public void RegisterCat(string rfid, string location, string description) {
+        public void RegisterCat(string rfid, string location, string description)
+        {
             if (GetAnimal(rfid) == null)
             {
                 Cat temp = new Cat(rfid, location, description);
                 myAnimals.Add(temp);
             }
         }
+
         public void RegisterDog(string rfid, string location, string description) {
             if (GetAnimal(rfid) == null)
             {
@@ -38,40 +49,52 @@ namespace AnimalShelterApp
                 myAnimals.Add(temp);
             }
         }
-        public void UpdateAnimalDetails(string rfid, string description) {
+
+        public void UpdateAnimalDetails(string rfid, string description)
+        {
             Animal temp = GetAnimal(rfid);
-            if(temp != null)
+            if (temp != null)
             {
                 temp.Description = description;
             }
         }
-        public void RemoveAnimalDetails(string rfid) {//should the animal be removed from owner's ownersAnimals list?
+
+        public void RemoveAnimalDetails(string rfid)
+        {//should the animal be removed from owner's ownersAnimals list?
             Animal temp = GetAnimal(rfid);
-            if(temp != null)
+            if (temp != null)
             {
                 myAnimals.Remove(temp);
             }
         }
-        public void RegisterOwner(string firstName, string lastName, string phoneNumber, string email) {
+
+        public void RegisterOwner(string firstName, string lastName, string phoneNumber, string email)
+        {
             //there is no way to check if owner already exists
             Owner temp = new Owner(firstName, lastName, phoneNumber, email);
             myOwners.Add(temp);
         }
-        public void UpdateOwnerDetails(int ownerID, string firstName, string lastName, string phoneNumber, string email) {
+
+        public void UpdateOwnerDetails(int ownerID, string firstName, string lastName, string phoneNumber, string email)
+        {
             Owner temp = GetOwner(ownerID);
-            if(temp != null)
+            if (temp != null)
             {
-                temp.UpdateDetails(firstName, lastName, phoneNumber, email);
+                temp.UpdateAllDetails(firstName, lastName, phoneNumber, email);
             }
         }
-        public void RemoveOwnerDetails(int ownerID) { //should the owner's animal's animalsOwner be set to null?
+
+        public void RemoveOwnerDetails(int ownerID)
+        { //should the owner's animal's animalsOwner be set to null?
             Owner temp = GetOwner(ownerID);
-            if(temp != null)
+            if (temp != null)
             {
                 myOwners.Remove(temp);
             }
         }
-        public bool AdoptAnimal(int ownerID, string rfid) {
+
+        public bool AdoptAnimal(int ownerID, string rfid)
+        {
             Owner owner = GetOwner(ownerID);
             Animal animal = GetAnimal(rfid);
             if (animal.IsAdoptable())
@@ -82,31 +105,88 @@ namespace AnimalShelterApp
                     animal.AnimalsOwner = owner;
                     return true;
                 }
-            }          
+            }
             return false;
         }
-        public double CalculateAdoptionFee(int ownerID, string rfid) {
+
+        public double CalculateAdoptionFee(int ownerID, string rfid)
+        {
             Owner owner = GetOwner(ownerID);
             Animal animal = GetAnimal(rfid);
             return animal.GetFee(owner);
         }
+
         public string GenerateOverview() { return ""; } //This still needs to be implemented!
-        public Owner GetOwner(int ownerID) {
-            foreach(Owner owner in myOwners)
+
+        public Owner GetOwner(int ownerID)
+        {
+            foreach (Owner owner in myOwners)
             {
-                if(owner.ID == ownerID)
+                if (owner.ID == ownerID)
                 {
                     return owner;
                 }
             }
             return null;
         }
-        public Animal GetAnimal(string rfid) {
+
+        public Animal GetAnimal(string rfid)
+        {
             foreach (Animal animal in myAnimals)
             {
                 if (animal.RfidNumber == rfid)
                 {
                     return animal;
+                }
+            }
+            return null;
+        }
+
+        public List<Owner> SearchOwnerByLastName(string lastName)
+        {
+            List<Owner> temp = new List<Owner>();
+
+            foreach (Owner currentOwner in myOwners)
+            {
+                if (currentOwner.LastName.ToLower().Contains(lastName.ToLower()))
+                {
+                    temp.Add(currentOwner);
+                }
+            }
+            return temp;
+        }
+
+        public Owner SearchOwnerByEmail(string email)
+        {
+            foreach (Owner currentOwner in myOwners)
+            {
+                if (currentOwner.Email == email)
+                {
+                    return currentOwner;
+                }
+            }
+            return null;
+        }
+
+        public Owner SearchOwnerByPhone(string phoneNumber)
+        {
+            foreach (Owner currentOwner in myOwners)
+            {
+                if (currentOwner.PhoneNumber == phoneNumber)
+                {
+                    return currentOwner;
+                }
+            }
+            return null;
+        }
+
+        public Animal SearchAnimalByRfidNumber(string rfidNumber)
+        {
+            foreach (Animal currentAnimal in myAnimals)
+            {
+                if (currentAnimal.RfidNumber == rfidNumber)
+                {
+                    return currentAnimal;
                 }
             }
             return null;

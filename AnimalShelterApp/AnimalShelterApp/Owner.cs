@@ -86,7 +86,7 @@ namespace AnimalShelterApp
             UpdateAllDetails(FirstName, lastName, PhoneNumber, Email);
         }
 
-        private void UpdateAllDetails(string firstName, string lastName, string phoneNumber, string email)
+        public void UpdateAllDetails(string firstName, string lastName, string phoneNumber, string email)
         {
             FirstName = firstName;
             LastName = lastName;

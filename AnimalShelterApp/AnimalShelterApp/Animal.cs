@@ -13,9 +13,9 @@ namespace AnimalShelterApp
         public string Location { get; }
         public DateTime DateBroughtIn { get; }
 
-        public string Description { get; private set; } // Depending on if it will ever change
+        public string Description { get; set; } // Depending on if it will ever change
 
-        public Owner AnimalsOwner { get; }
+        public Owner AnimalsOwner { get; set; }
 
         public TimeSpan Difference
         {
