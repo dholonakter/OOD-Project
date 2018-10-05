@@ -11,53 +11,87 @@ namespace AnimalShelterApp
         //fields
         private static int idCount = 0; //needed for constructor
 
-        private int id;
-        private string firstName;
-        private string lastName;
-        private string phoneNumber;
-        private string email;
-
         private List<Animal> ownersAnimals;
 
         //properties
-        public int ID { get { return this.id; } }
+        public int ID { get; }
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public string PhoneNumber { get; private set; }
+        public string Email { get; private set; }
 
         //constructor
-        public Owner(string firstName, string lastName, string phoneNumber, string email) {
+        public Owner(string firstName, string lastName, string phoneNumber, string email)
+        {
             idCount++;
-            this.id = idCount;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.phoneNumber = phoneNumber;
-            this.email = email;            
+            ID = idCount;
+            FirstName = firstName;
+            LastName = lastName;
+            PhoneNumber = phoneNumber;
+            Email = email;
+
+            ownersAnimals = new List<Animal>();
         }
 
         //methods
-        public void AddPet(Animal animal) {
-            if(animal != null)
-            {
-                ownersAnimals.Add(animal);
-            }           
+        public void AddPet(Animal animal)
+        {
+            ownersAnimals.Add(animal);
         }
-        public bool Owns(Animal animal) {
-            if(animal != null)
+
+        public bool Owns(Animal animal)
+        {
+            Animal resultAnimal = GetPet(animal.RfidNumber);
+            if (resultAnimal != null)
             {
-                foreach(Animal ownerAnimal in ownersAnimals)
-                {
-                    if(ownerAnimal == animal)
-                    {
-                        return true;
-                    }
-                }
+                return true;
             }
             return false;
         }
-        public void UpdateDetails(string firstName, string lastName, string phoneNumber, string email) //new method for UpdateOwnerDetails
+
+        public Animal GetPet(string rfidNumber)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.phoneNumber = phoneNumber;
-            this.email = email;
+            foreach (Animal ownerAnimal in ownersAnimals)
+            {
+                if (ownerAnimal.RfidNumber == rfidNumber)
+                {
+                    return ownerAnimal;
+                }
+            }
+            return null;
+        }
+
+        public List<Animal> GetPets()
+        {
+            return new List<Animal>(ownersAnimals);
+        }
+
+        public void UpdatePhoneNumber(string phoneNumber)
+        {
+            UpdateAllDetails(FirstName, LastName, phoneNumber, Email);
+        }
+
+        public void UpdateEmail(string email)
+        {
+            UpdateAllDetails(FirstName, LastName, PhoneNumber, email);
+        }
+
+        public void UpdateFirstName(string firstName)
+        {
+            UpdateAllDetails(firstName, LastName, PhoneNumber, Email);
+        }
+
+        public void UpdateLastName(string lastName)
+        {
+            UpdateAllDetails(FirstName, lastName, PhoneNumber, Email);
+        }
+
+        private void UpdateAllDetails(string firstName, string lastName, string phoneNumber, string email)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            PhoneNumber = phoneNumber;
+            Email = email;
         }
 
     }
