@@ -33,5 +33,12 @@ namespace AnimalShelterApp
             }
             return 10.0 + 2 * Difference.Days;
         }
+        public override string ToString()
+        {
+            string catinfo = "";
+            catinfo = "The RFID number of dog is" + RfidNumber + ",location is" + Location + "and description is" + Description;
+            return catinfo;
+        }
+
     }
 }

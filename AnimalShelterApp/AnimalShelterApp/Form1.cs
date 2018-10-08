@@ -10,89 +10,44 @@ using System.Windows.Forms;
 
 namespace AnimalShelterApp
 {
-    public partial class Form1 : Form
+    public partial class animalshelterAPP : Form
     {
-        public Form1()
+        AnimalShelter animalShelter = null;
+        public animalshelterAPP()
         {
             InitializeComponent();
+            animalShelter = new AnimalShelter("EindhovenAnimalShelter", "Eindhoven", "068734567", "animalshelter@gmail.com");
+            Text = animalShelter.Name;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void btnAddAnimal_Click(object sender, EventArgs e)
         {
+            string rfid = tbanimalRfid.Text;
+            string location = tblocation.Text;
+            string description = tbdescription.Text;
+            if (animalShelter != null)
+            {
+                if (rbCat.Checked)
+                {
+                   Cat cat = new Cat(rfid, location, description);
+                   animalShelter.RegisterCat(rfid, location, description);
+                    MessageBox.Show("successfully added the cat");
+                   ListOfAnimals.Items.Add(cat);
+                }
+                else
+                {
+                    Dog dog = new Dog(rfid, location, description);
+                    animalShelter.RegisterDog(rfid, location, description);
+                    MessageBox.Show("successfully added the dog");
+                    ListOfAnimals.Items.Add(dog);
+                }
+
+            }
+  
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
+        private void locationUpdate_TextChanged(object sender, EventArgs e)
         {
 
         }
