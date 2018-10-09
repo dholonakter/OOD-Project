@@ -38,7 +38,7 @@
             this.rbCat = new System.Windows.Forms.RadioButton();
             this.rbDog = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ownerRegGrpBox = new System.Windows.Forms.GroupBox();
             this.btAddOwner = new System.Windows.Forms.Button();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.emailLb = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@
             this.tbNewPhoneNumber = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.lbOwners = new System.Windows.Forms.ListBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.ownerSearchTb = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
@@ -91,7 +91,7 @@
             this.lbOverview = new System.Windows.Forms.ListBox();
             this.btOverview = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.ownerRegGrpBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -220,27 +220,27 @@
             this.groupBox1.Text = "Animal Registration";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // groupBox2
+            // ownerRegGrpBox
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.groupBox2.Controls.Add(this.btAddOwner);
-            this.groupBox2.Controls.Add(this.tbEmail);
-            this.groupBox2.Controls.Add(this.emailLb);
-            this.groupBox2.Controls.Add(this.tbFirstName);
-            this.groupBox2.Controls.Add(this.fNameLb);
-            this.groupBox2.Controls.Add(this.lNameLb);
-            this.groupBox2.Controls.Add(this.tbLastName);
-            this.groupBox2.Controls.Add(this.phoneNumberLb);
-            this.groupBox2.Controls.Add(this.tbPhoneNumber);
-            this.groupBox2.Location = new System.Drawing.Point(9, 329);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(266, 256);
-            this.groupBox2.TabIndex = 12;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Owner registartion";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.ownerRegGrpBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ownerRegGrpBox.Controls.Add(this.btAddOwner);
+            this.ownerRegGrpBox.Controls.Add(this.tbEmail);
+            this.ownerRegGrpBox.Controls.Add(this.emailLb);
+            this.ownerRegGrpBox.Controls.Add(this.tbFirstName);
+            this.ownerRegGrpBox.Controls.Add(this.fNameLb);
+            this.ownerRegGrpBox.Controls.Add(this.lNameLb);
+            this.ownerRegGrpBox.Controls.Add(this.tbLastName);
+            this.ownerRegGrpBox.Controls.Add(this.phoneNumberLb);
+            this.ownerRegGrpBox.Controls.Add(this.tbPhoneNumber);
+            this.ownerRegGrpBox.Location = new System.Drawing.Point(9, 329);
+            this.ownerRegGrpBox.Margin = new System.Windows.Forms.Padding(2);
+            this.ownerRegGrpBox.Name = "ownerRegGrpBox";
+            this.ownerRegGrpBox.Padding = new System.Windows.Forms.Padding(2);
+            this.ownerRegGrpBox.Size = new System.Drawing.Size(266, 256);
+            this.ownerRegGrpBox.TabIndex = 12;
+            this.ownerRegGrpBox.TabStop = false;
+            this.ownerRegGrpBox.Text = "Owner registartion";
+            this.ownerRegGrpBox.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // btAddOwner
             // 
@@ -323,10 +323,12 @@
             // 
             this.tbPhoneNumber.Location = new System.Drawing.Point(88, 105);
             this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(2);
+            this.tbPhoneNumber.MaxLength = 10;
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(152, 20);
             this.tbPhoneNumber.TabIndex = 2;
             this.tbPhoneNumber.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+            this.tbPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhoneNumber_KeyPress);
             // 
             // lbAnimals
             // 
@@ -500,7 +502,7 @@
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.lbOwners);
-            this.panel2.Controls.Add(this.textBox15);
+            this.panel2.Controls.Add(this.ownerSearchTb);
             this.panel2.Location = new System.Drawing.Point(296, 329);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
@@ -664,16 +666,18 @@
             this.lbOwners.Location = new System.Drawing.Point(12, 49);
             this.lbOwners.Margin = new System.Windows.Forms.Padding(2);
             this.lbOwners.Name = "lbOwners";
+            this.lbOwners.ScrollAlwaysVisible = true;
             this.lbOwners.Size = new System.Drawing.Size(247, 173);
             this.lbOwners.TabIndex = 13;
+            this.lbOwners.SelectedIndexChanged += new System.EventHandler(this.lbOwners_SelectedIndexChanged);
             // 
-            // textBox15
+            // ownerSearchTb
             // 
-            this.textBox15.Location = new System.Drawing.Point(152, 24);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(227, 20);
-            this.textBox15.TabIndex = 16;
+            this.ownerSearchTb.Location = new System.Drawing.Point(152, 24);
+            this.ownerSearchTb.Margin = new System.Windows.Forms.Padding(2);
+            this.ownerSearchTb.Name = "ownerSearchTb";
+            this.ownerSearchTb.Size = new System.Drawing.Size(227, 20);
+            this.ownerSearchTb.TabIndex = 16;
             // 
             // groupBox5
             // 
@@ -797,7 +801,7 @@
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.ownerRegGrpBox);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
@@ -805,8 +809,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.ownerRegGrpBox.ResumeLayout(false);
+            this.ownerRegGrpBox.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -833,7 +837,7 @@
         private System.Windows.Forms.RadioButton rbCat;
         private System.Windows.Forms.RadioButton rbDog;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox ownerRegGrpBox;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.Label fNameLb;
         private System.Windows.Forms.Label lNameLb;
@@ -868,7 +872,7 @@
         private System.Windows.Forms.TextBox tbNewPhoneNumber;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox lbOwners;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox ownerSearchTb;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label18;

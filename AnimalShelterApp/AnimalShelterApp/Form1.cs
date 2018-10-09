@@ -128,13 +128,29 @@ namespace AnimalShelterApp
             string phoneNumber = tbPhoneNumber.Text;
             string email = tbEmail.Text;
 
-            if (myShelter.SearchOwnerByPhone(phoneNumber) == null)
+            if (tbFirstName.Text == "" || tbLastName.Text == "" || tbPhoneNumber.Text == "" || tbEmail.Text == "")
             {
-                myShelter.RegisterOwner(firstName, lastName, phoneNumber, email);
+                MessageBox.Show("Please enter all fields for the owner.");
             }
             else
             {
-                MessageBox.Show("Owner is already known in the system.");
+                if (myShelter.SearchOwnerByPhone(phoneNumber) == null && myShelter.SearchOwnerByEmail(email) == null)
+                {
+                    myShelter.RegisterOwner(firstName, lastName, phoneNumber, email);
+                    foreach (Control currentControl in ownerRegGrpBox.Controls)
+                    {
+                        if (currentControl is TextBox)
+                        {
+                            currentControl.Text = "";
+                        }
+                    }
+                    updateOwnerListbox(myShelter.GetAllOwners());
+                    lbOwners.SelectedIndex = lbOwners.Items.Count - 1;
+                }
+                else
+                {
+                    MessageBox.Show("Owner is already known in the system.");
+                }
             }
                       
         }
@@ -178,7 +194,7 @@ namespace AnimalShelterApp
         private void btSearchOwner_Click(object sender, EventArgs e)
         {
             List<Owner> owners;
-            string expression = textBox15.Text;
+            string expression = ownerSearchTb.Text;
 
             if (expression != "")
             {
@@ -205,6 +221,10 @@ namespace AnimalShelterApp
                        email = tbNewEmail.Text == "" ? o.Email : tbNewEmail.Text;
 
                 myShelter.UpdateOwnerDetails(o.ID, fName, lName, phoneNumber, email);
+                int selectedItem = lbOwners.SelectedIndex;
+
+                updateOwnerListbox(myShelter.GetAllOwners());
+                lbOwners.SelectedIndex = selectedItem;
             }
             else
             {
@@ -219,6 +239,7 @@ namespace AnimalShelterApp
             if(o != null)
             {
                 myShelter.RemoveOwnerDetails(o.ID);
+                updateOwnerListbox(myShelter.GetAllOwners());
             }
             else
             {
@@ -284,6 +305,32 @@ namespace AnimalShelterApp
             myShelter.RegisterOwner("Betty", "Chenette", "0601234567", "example10@email.com");
             myShelter.RegisterOwner("Katheryn", "Roal", "0611234567", "example11@email.com");
             myShelter.RegisterOwner("Wilie", "Yarbough", "0611345678", "example12@email.com");
+        }
+
+        private void tbPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = ValidateInput(e);
+        }
+
+        public static bool ValidateInput(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || (e.KeyChar == (char)8))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void lbOwners_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Owner o = (Owner)lbOwners.SelectedItem;
+            if (o != null)
+            {
+                tbNewFirstName.Text = o.FirstName;
+                tbNewLastName.Text = o.LastName;
+                tbNewPhoneNumber.Text = o.PhoneNumber;
+                tbNewEmail.Text = o.Email;
+            }
         }
     }
 }
