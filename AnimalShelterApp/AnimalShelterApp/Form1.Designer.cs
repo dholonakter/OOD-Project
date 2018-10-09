@@ -80,6 +80,7 @@
             this.lbOwners = new System.Windows.Forms.ListBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
@@ -88,7 +89,7 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.lbOverview = new System.Windows.Forms.ListBox();
             this.btOverview = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
+            this.btShowOwners = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -494,6 +495,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel2.Controls.Add(this.btShowOwners);
             this.panel2.Controls.Add(this.btSearchOwner);
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Controls.Add(this.label12);
@@ -651,7 +653,7 @@
             this.lbOwners.Location = new System.Drawing.Point(12, 49);
             this.lbOwners.Margin = new System.Windows.Forms.Padding(2);
             this.lbOwners.Name = "lbOwners";
-            this.lbOwners.Size = new System.Drawing.Size(247, 186);
+            this.lbOwners.Size = new System.Drawing.Size(247, 147);
             this.lbOwners.TabIndex = 13;
             // 
             // textBox15
@@ -681,6 +683,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Adopt Animal";
             this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(23, 104);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(38, 13);
+            this.label19.TabIndex = 18;
+            this.label19.Text = "Owner";
             // 
             // button8
             // 
@@ -764,14 +775,16 @@
             this.btOverview.UseVisualStyleBackColor = false;
             this.btOverview.Click += new System.EventHandler(this.btOverview_Click);
             // 
-            // label19
+            // btShowOwners
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(23, 104);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(38, 13);
-            this.label19.TabIndex = 18;
-            this.label19.Text = "Owner";
+            this.btShowOwners.BackColor = System.Drawing.Color.PowderBlue;
+            this.btShowOwners.Location = new System.Drawing.Point(98, 220);
+            this.btShowOwners.Name = "btShowOwners";
+            this.btShowOwners.Size = new System.Drawing.Size(99, 23);
+            this.btShowOwners.TabIndex = 20;
+            this.btShowOwners.Text = "Show owners";
+            this.btShowOwners.UseVisualStyleBackColor = false;
+            this.btShowOwners.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
@@ -871,6 +884,7 @@
         private System.Windows.Forms.Button btSearchOwner;
         private System.Windows.Forms.Button btOverview;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btShowOwners;
     }
 }
 

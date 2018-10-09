@@ -210,5 +210,14 @@ namespace AnimalShelterApp
                 this.lbOverview.Items.Add(o);
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.lbOwners.Items.Clear();
+            foreach (Owner o in this.myShelter.GetAllOwners())
+            {
+                this.lbOwners.Items.Add(o);
+            }
+        }
     }
 }
