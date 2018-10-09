@@ -8,6 +8,7 @@ namespace AnimalShelterApp
 {
     abstract class Animal
     {
+        private static int idCountOfAnimal = 0;
         private DateTime dateBroughtIn;
         private string location;
         // Properties
@@ -18,7 +19,9 @@ namespace AnimalShelterApp
         public string Description { get; set; } // Depending on if it will ever change
 
         public Owner AnimalsOwner { get; set; }
+
         public bool IsClaimAble { get; set; }
+        public int ID { get; }
 
         public TimeSpan Difference
         {
@@ -31,6 +34,8 @@ namespace AnimalShelterApp
         //constructor
         public Animal(string rfid, string Location, string description)
         {
+            idCountOfAnimal++;
+            ID = idCountOfAnimal;
             RfidNumber = rfid;
             location = Location;
             Description = description;
@@ -56,5 +61,23 @@ namespace AnimalShelterApp
             dateBroughtIn = DateTime.Now;
             location = Location;
         }
+        public override string ToString()
+        {
+            string info = "";
+
+            if (AnimalsOwner != null)
+            {
+                info = "(ID)- " + ID + "(RFID)- " + RfidNumber + "(ownerid)" + AnimalsOwner.ID + "Location" + location + " (Description) -" + Description;
+            }
+            else
+            {
+                info = "(ID)- " + ID + "(RFID)- " + RfidNumber + "(ownerid)- No Owner "+ "Location" + location + " (Description) -" + Description;
+            }
+
+            return info;
+
+
+        }
+
     }
 }

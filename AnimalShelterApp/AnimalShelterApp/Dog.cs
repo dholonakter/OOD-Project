@@ -33,5 +33,10 @@ namespace AnimalShelterApp
             }
             return 10.0 + 2 * Difference.Days;
         }
+        public override string ToString()
+        {
+            string info = "";
+            return info = "Dog : "+base.ToString();
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace AnimalShelterApp
         public string LastName { get; private set; }
         public string PhoneNumber { get; private set; }
         public string Email { get; private set; }
+        public List<Animal> Animals { get; set; }
 
         // Constructors
         public Owner(string firstName, string lastName, string phoneNumber, string email)
@@ -27,6 +28,7 @@ namespace AnimalShelterApp
             LastName = lastName;
             PhoneNumber = phoneNumber;
             Email = email;
+            Animals = new List<Animal>();
         }
 
         //methods

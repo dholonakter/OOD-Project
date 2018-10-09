@@ -38,7 +38,8 @@ namespace AnimalShelterApp
         {
             if (GetAnimal(rfid) == null)
             {
-                Cat temp = new Cat(rfid, location, description);
+                Animal temp = new Cat(rfid, location, description);
+                temp.IsClaimAble = true;
                 myAnimals.Add(temp);
             }
             else
@@ -54,7 +55,8 @@ namespace AnimalShelterApp
         public void RegisterDog(string rfid, string location, string description) {
             if (GetAnimal(rfid) == null)
             {
-                Dog temp = new Dog(rfid, location, description);
+                Animal temp = new Dog(rfid, location, description);
+                temp.IsClaimAble = true;
                 myAnimals.Add(temp);
             }
             else
@@ -121,7 +123,8 @@ namespace AnimalShelterApp
                 if (owner != null && animal != null)
                 {
                     animal.AnimalsOwner = owner;
-                animal.IsClaimAble = false;
+                    animal.IsClaimAble = false;
+                    owner.Animals.Add(animal);
                     return true;
                 }
             return false;

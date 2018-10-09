@@ -18,6 +18,7 @@ namespace AnimalShelterApp
             InitializeComponent();
             myShelter = new AnimalShelter("Fontys", "Rachelsmolen", "06123456", "Fontys@animalShelter.nl");
             addOwnerTestData();
+            AddAnimalTestData();
             updateOwnerListbox(myShelter.GetAllOwners());
         }
 
@@ -187,8 +188,10 @@ namespace AnimalShelterApp
             Animal a = (Animal)lbAnimals.SelectedItem;
             if (a != null)
             {
-                myShelter.RemoveAnimalDetails(tbNewRFID.Text);
+                myShelter.RemoveAnimalDetails(tbNewRFID.Text)
+
             }
+            
         }
 
         private void btSearchOwner_Click(object sender, EventArgs e)
@@ -325,6 +328,18 @@ namespace AnimalShelterApp
             myShelter.RegisterOwner("Katheryn", "Roal", "0611234567", "example11@email.com");
             myShelter.RegisterOwner("Wilie", "Yarbough", "0611345678", "example12@email.com");
         }
+        private void AddAnimalTestData()
+        {
+            myShelter.RegisterCat("B56","Eindhoven", "something");
+            myShelter.RegisterDog("c56", "Eindhoven", "something");
+            myShelter.RegisterCat("T56", "Eindhoven", "something");
+            myShelter.RegisterDog("Y56", "Eindhoven", "something");
+            myShelter.RegisterCat("Z56", "Eindhoven", "something");
+            myShelter.RegisterDog("X56", "Eindhoven", "something");
+
+
+
+        }
 
         private void tbPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -408,6 +423,12 @@ namespace AnimalShelterApp
                             if (myShelter.AdoptAnimal(ownerID, rfid))
                             {
                                 MessageBox.Show("Owner has succesfully claimed animal");
+                             
+                                this.lbAnimals.Items.Clear();
+                                foreach (Animal a in this.myShelter.GetAllAnimals())
+                                {
+                                    this.lbAnimals.Items.Add(a);
+                                }
                             }
                             else
                             {
@@ -436,7 +457,8 @@ namespace AnimalShelterApp
             if(lbAnimals.SelectedIndex >= 0)
             {
                 Animal animal = (Animal)lbAnimals.SelectedItem;
-                tb_adoptRFID.Text = animal.RfidNumber;                
+                tb_adoptRFID.Text = animal.RfidNumber;
+                tbNewRFID.Text = animal.RfidNumber;
             }
         }
     }

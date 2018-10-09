@@ -32,5 +32,10 @@ namespace AnimalShelterApp
             }
             return 15.0;
         }
+        public override string ToString()
+        {
+            string info = "";
+            return info = "Cat :" + base.ToString();
+        }
     }
 }
