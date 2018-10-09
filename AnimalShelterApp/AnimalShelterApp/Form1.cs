@@ -358,8 +358,9 @@ namespace AnimalShelterApp
         {
             int ownerID;
             string rfid;
-            Owner owner;
+            Owner owner = null;
             Animal animal;
+            string previousOwnerName;
 
             rfid = tb_adoptRFID.Text;
             if(!Int32.TryParse(tb_AdoptOwnerID.Text, out ownerID))
@@ -367,11 +368,13 @@ namespace AnimalShelterApp
                 MessageBox.Show("The format for owner id is wrong, please try again");
                 return;
             }
+            
 
             animal = myShelter.GetAnimal(rfid);
             owner = myShelter.GetOwner(ownerID);
             if(animal == null) { MessageBox.Show("There is no animal with this rfid, please try again"); return; }
             if(owner == null) { MessageBox.Show("There is no owner with this rfid, please try again"); return; }
+            if(animal.AnimalsOwner != null) { previousOwnerName = animal.AnimalsOwner.FirstName + " " + animal.AnimalsOwner.LastName; } else { previousOwnerName = "unknown"; }
 
             if (animal.IsClaimAble)
             {
@@ -397,7 +400,7 @@ namespace AnimalShelterApp
                 }
                 else
                 {
-                    if (MessageBox.Show("This animal is not adoptable yet. If the owner can prove this animal is his/hers press yes", "IDENTITY", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("This animal is not adoptable yet. If the owner can prove this animal is his/hers press yes. The previous owner is " + previousOwnerName, "IDENTITY", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         if (price == -1) { MessageBox.Show("Something went wrong while calculating the price"); return; }
                         if (MessageBox.Show("The fee is $" + price + ". press yes to comfirm payment", "PAYMENT", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
