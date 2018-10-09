@@ -68,12 +68,12 @@ namespace AnimalShelterApp
             }
         }
 
-        public void RegisterOwner(string firstName, string lastName, string phoneNumber, string email)
+        public void RegisterOwner(string firstName, string lastName, string phoneNumber, string email, Animal pet)
         {
             //there is no way to check if owner already exists
             // There is if you check on email or phonenumber, those are unique.
             // Unless it's couples that perhaps use shared e-mail address for certain business.
-            Owner temp = new Owner(firstName, lastName, phoneNumber, email);
+            Owner temp = new Owner(firstName, lastName, phoneNumber, email, pet);
             myOwners.Add(temp);
         }
 
@@ -92,6 +92,7 @@ namespace AnimalShelterApp
             Owner temp = GetOwner(ownerID);
             if (temp != null)
             {
+
                 myOwners.Remove(temp);
             }
         }

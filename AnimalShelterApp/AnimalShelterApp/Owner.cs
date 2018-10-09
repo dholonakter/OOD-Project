@@ -21,7 +21,7 @@ namespace AnimalShelterApp
         public string Email { get; private set; }
 
         //constructor
-        public Owner(string firstName, string lastName, string phoneNumber, string email)
+        public Owner(string firstName, string lastName, string phoneNumber, string email, Animal pet)
         {
             idCount++;
             ID = idCount;
@@ -31,6 +31,7 @@ namespace AnimalShelterApp
             Email = email;
 
             ownersAnimals = new List<Animal>();
+            ownersAnimals.Add(pet);
         }
 
         //methods

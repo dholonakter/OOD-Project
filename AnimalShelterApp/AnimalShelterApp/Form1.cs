@@ -210,6 +210,10 @@ namespace AnimalShelterApp
             {
                 myShelter.RemoveOwnerDetails(o.ID);
             }
+            else
+            {
+                MessageBox.Show("Please select an owner you would like to remove.");
+            }
         }
 
         private void label18_Click(object sender, EventArgs e)
