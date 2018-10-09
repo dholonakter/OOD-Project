@@ -8,14 +8,17 @@ namespace AnimalShelterApp
 {
     abstract class Animal
     {
+        private DateTime dateBroughtIn;
+        private string location;
         // Properties
         public string RfidNumber { get; } // Removed the setter as it's set only once upon registration (thus construction which is allowed).
-        public string Location { get; }
-        public DateTime DateBroughtIn { get; }
+        public string Location { get { return this.location; } }
+        public DateTime DateBroughtIn { get { return this.dateBroughtIn; } }
 
         public string Description { get; set; } // Depending on if it will ever change
 
         public Owner AnimalsOwner { get; set; }
+        public bool IsClaimAble { get; set; }
 
         public TimeSpan Difference
         {
@@ -26,12 +29,13 @@ namespace AnimalShelterApp
         } // Added difference as read only private property such that it can be reused where needed.
 
         //constructor
-        public Animal(string rfid, string location, string description)
+        public Animal(string rfid, string Location, string description)
         {
             RfidNumber = rfid;
-            Location = location;
+            location = Location;
             Description = description;
-            DateBroughtIn = DateTime.Now;
+            dateBroughtIn = DateTime.Now;
+            IsClaimAble = true;
         }
 
         //methods
@@ -45,6 +49,12 @@ namespace AnimalShelterApp
             // Could also have been a read only property as it's derived 
             // From other properties.
             return Difference.Days > 20; // Changed to > 20 (Case states more than 20 days)
+        }
+        public void reRegister(string Location)
+        {
+            IsClaimAble = true;
+            dateBroughtIn = DateTime.Now;
+            location = Location;
         }
     }
 }

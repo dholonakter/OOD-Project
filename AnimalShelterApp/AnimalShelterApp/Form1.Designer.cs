@@ -82,12 +82,11 @@
             this.ownerSearchTb = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnClaim = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.tb_AdoptOwnerID = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.tb_adoptRFID = new System.Windows.Forms.TextBox();
             this.lbOverview = new System.Windows.Forms.ListBox();
             this.btOverview = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -338,6 +337,7 @@
             this.lbAnimals.Name = "lbAnimals";
             this.lbAnimals.Size = new System.Drawing.Size(247, 134);
             this.lbAnimals.TabIndex = 13;
+            this.lbAnimals.SelectedIndexChanged += new System.EventHandler(this.lbAnimals_SelectedIndexChanged);
             // 
             // btDeleteAnimal
             // 
@@ -683,12 +683,11 @@
             // 
             this.groupBox5.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.button8);
-            this.groupBox5.Controls.Add(this.button7);
+            this.groupBox5.Controls.Add(this.btnClaim);
             this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.textBox18);
+            this.groupBox5.Controls.Add(this.tb_AdoptOwnerID);
             this.groupBox5.Controls.Add(this.label17);
-            this.groupBox5.Controls.Add(this.textBox17);
+            this.groupBox5.Controls.Add(this.tb_adoptRFID);
             this.groupBox5.Location = new System.Drawing.Point(856, 329);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
@@ -708,29 +707,18 @@
             this.label19.TabIndex = 18;
             this.label19.Text = "Owner";
             // 
-            // button8
+            // btnClaim
             // 
-            this.button8.BackColor = System.Drawing.Color.PowderBlue;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(179, 189);
-            this.button8.Margin = new System.Windows.Forms.Padding(2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(74, 33);
-            this.button8.TabIndex = 17;
-            this.button8.Text = "Reclaim";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.PowderBlue;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(53, 189);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(72, 33);
-            this.button7.TabIndex = 16;
-            this.button7.Text = "Adopt";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnClaim.BackColor = System.Drawing.Color.PowderBlue;
+            this.btnClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClaim.Location = new System.Drawing.Point(121, 192);
+            this.btnClaim.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClaim.Name = "btnClaim";
+            this.btnClaim.Size = new System.Drawing.Size(74, 33);
+            this.btnClaim.TabIndex = 17;
+            this.btnClaim.Text = "Claim";
+            this.btnClaim.UseVisualStyleBackColor = false;
+            this.btnClaim.Click += new System.EventHandler(this.btnClaim_Click);
             // 
             // label18
             // 
@@ -742,13 +730,13 @@
             this.label18.TabIndex = 12;
             this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
-            // textBox18
+            // tb_AdoptOwnerID
             // 
-            this.textBox18.Location = new System.Drawing.Point(82, 101);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(152, 20);
-            this.textBox18.TabIndex = 12;
+            this.tb_AdoptOwnerID.Location = new System.Drawing.Point(82, 101);
+            this.tb_AdoptOwnerID.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_AdoptOwnerID.Name = "tb_AdoptOwnerID";
+            this.tb_AdoptOwnerID.Size = new System.Drawing.Size(152, 20);
+            this.tb_AdoptOwnerID.TabIndex = 12;
             // 
             // label17
             // 
@@ -761,13 +749,13 @@
             this.label17.Text = "RFID";
             this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
-            // textBox17
+            // tb_adoptRFID
             // 
-            this.textBox17.Location = new System.Drawing.Point(82, 59);
-            this.textBox17.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(152, 20);
-            this.textBox17.TabIndex = 1;
+            this.tb_adoptRFID.Location = new System.Drawing.Point(82, 59);
+            this.tb_adoptRFID.Margin = new System.Windows.Forms.Padding(2);
+            this.tb_adoptRFID.Name = "tb_adoptRFID";
+            this.tb_adoptRFID.Size = new System.Drawing.Size(152, 20);
+            this.tb_adoptRFID.TabIndex = 1;
             // 
             // lbOverview
             // 
@@ -874,14 +862,13 @@
         private System.Windows.Forms.ListBox lbOwners;
         private System.Windows.Forms.TextBox ownerSearchTb;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox tb_AdoptOwnerID;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox tb_adoptRFID;
         private System.Windows.Forms.Button btAddOwner;
         private System.Windows.Forms.Button btUpdateOwner;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnClaim;
         private System.Windows.Forms.ListBox lbOverview;
         private System.Windows.Forms.Button btShowAnimals;
         private System.Windows.Forms.Button btSearchAnimal;

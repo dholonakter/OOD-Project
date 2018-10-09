@@ -349,6 +349,91 @@ namespace AnimalShelterApp
                 tbNewLastName.Text = o.LastName;
                 tbNewPhoneNumber.Text = o.PhoneNumber;
                 tbNewEmail.Text = o.Email;
+
+                tb_AdoptOwnerID.Text = o.ID.ToString();
+            }
+        }
+
+        private void btnClaim_Click(object sender, EventArgs e)
+        {
+            int ownerID;
+            string rfid;
+            Owner owner;
+            Animal animal;
+
+            rfid = tb_adoptRFID.Text;
+            if(!Int32.TryParse(tb_AdoptOwnerID.Text, out ownerID))
+            {
+                MessageBox.Show("The format for owner id is wrong, please try again");
+                return;
+            }
+
+            animal = myShelter.GetAnimal(rfid);
+            owner = myShelter.GetOwner(ownerID);
+            if(animal == null) { MessageBox.Show("There is no animal with this rfid, please try again"); return; }
+            if(owner == null) { MessageBox.Show("There is no owner with this rfid, please try again"); return; }
+
+            if (animal.IsClaimAble)
+            {
+                double price = animal.GetFee(owner);
+                if (animal.IsAdoptable())
+                {
+                    if (price == -1) { MessageBox.Show("Something went wrong while calculating the price"); return; }
+                    if (MessageBox.Show("The fee is $" + price + ". press yes to comfirm payment", "PAYMENT", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (myShelter.AdoptAnimal(ownerID, rfid))
+                        {
+                            MessageBox.Show("Owner has succesfully claimed animal");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Somethign went wrong while claiming this animal");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Claim has been cancelled");
+                    }
+                }
+                else
+                {
+                    if (MessageBox.Show("This animal is not adoptable yet. If the owner can prove this animal is his/hers press yes", "IDENTITY", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (price == -1) { MessageBox.Show("Something went wrong while calculating the price"); return; }
+                        if (MessageBox.Show("The fee is $" + price + ". press yes to comfirm payment", "PAYMENT", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            if (myShelter.AdoptAnimal(ownerID, rfid))
+                            {
+                                MessageBox.Show("Owner has succesfully claimed animal");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Somethign went wrong while claiming this animal");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Claim has been cancelled");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Claim has been cancelled");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("This animal is not claimable. Perhaps because someone already claimed it");
+            }
+        }
+
+        private void lbAnimals_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lbAnimals.SelectedIndex >= 0)
+            {
+                Animal animal = (Animal)lbAnimals.SelectedItem;
+                tb_adoptRFID.Text = animal.RfidNumber;                
             }
         }
     }

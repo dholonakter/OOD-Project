@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AnimalShelterApp
 {
@@ -40,6 +41,14 @@ namespace AnimalShelterApp
                 Cat temp = new Cat(rfid, location, description);
                 myAnimals.Add(temp);
             }
+            else
+            {
+                if (MessageBox.Show("This rfid has already been used. If you want to re-register (description and previous owner won't be lost) this animal press yes", "ANIMAL EXISTS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Animal animal = GetAnimal(rfid);
+                    animal.reRegister(location);
+                }
+            }
         }
 
         public void RegisterDog(string rfid, string location, string description) {
@@ -47,6 +56,14 @@ namespace AnimalShelterApp
             {
                 Dog temp = new Dog(rfid, location, description);
                 myAnimals.Add(temp);
+            }
+            else
+            {
+                if(MessageBox.Show("This rfid has already been used. If you want to re-register (description and previous owner won't be lost) this animal press yes", "ANIMAL EXISTS", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Animal animal = GetAnimal(rfid);
+                    animal.reRegister(location);
+                }
             }
         }
 
@@ -101,14 +118,12 @@ namespace AnimalShelterApp
         {
             Owner owner = GetOwner(ownerID);
             Animal animal = GetAnimal(rfid);
-            if (animal.IsAdoptable())
-            {
                 if (owner != null && animal != null)
                 {
                     animal.AnimalsOwner = owner;
+                animal.IsClaimAble = false;
                     return true;
                 }
-            }
             return false;
         }
 
