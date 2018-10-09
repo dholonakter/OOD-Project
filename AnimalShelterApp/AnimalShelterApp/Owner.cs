@@ -33,11 +33,6 @@ namespace AnimalShelterApp
             ownersAnimals = new List<Animal>();
         }
 
-        public Owner(string firstName, string lastName, string phoneNumber, string email, Animal pet) : this(firstName, lastName, phoneNumber, email)
-        {
-            ownersAnimals.Add(pet);
-        }
-
         //methods
         public void AddPet(Animal animal)
         {
@@ -66,11 +61,6 @@ namespace AnimalShelterApp
             return null;
         }
 
-        public List<Animal> GetPets()
-        {
-            return new List<Animal>(ownersAnimals);
-        }
-
         public void UpdatePhoneNumber(string phoneNumber)
         {
             UpdateAllDetails(FirstName, LastName, phoneNumber, Email);
@@ -97,6 +87,11 @@ namespace AnimalShelterApp
             LastName = lastName;
             PhoneNumber = phoneNumber;
             Email = email;
+        }
+
+        public override string ToString()
+        {
+            return $"{ID}: {FirstName} {LastName}, {PhoneNumber}, {Email}";
         }
 
     }

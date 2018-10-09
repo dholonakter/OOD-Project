@@ -64,6 +64,7 @@
             this.btShowAnimals = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.showOwnersBtn = new System.Windows.Forms.Button();
             this.btSearchOwner = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btUpdateOwner = new System.Windows.Forms.Button();
@@ -89,11 +90,6 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.lbOverview = new System.Windows.Forms.ListBox();
             this.btOverview = new System.Windows.Forms.Button();
-            this.showOwnersBtn = new System.Windows.Forms.Button();
-            this.ownersAnimalRFIDtb = new System.Windows.Forms.TextBox();
-            this.ownersAnimalRFIDlb = new System.Windows.Forms.Label();
-            this.rbtnHasPet = new System.Windows.Forms.RadioButton();
-            this.rBtnHasNoPet = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -227,10 +223,6 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.groupBox2.Controls.Add(this.rBtnHasNoPet);
-            this.groupBox2.Controls.Add(this.rbtnHasPet);
-            this.groupBox2.Controls.Add(this.ownersAnimalRFIDtb);
-            this.groupBox2.Controls.Add(this.ownersAnimalRFIDlb);
             this.groupBox2.Controls.Add(this.btAddOwner);
             this.groupBox2.Controls.Add(this.tbEmail);
             this.groupBox2.Controls.Add(this.emailLb);
@@ -244,7 +236,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(266, 288);
+            this.groupBox2.Size = new System.Drawing.Size(266, 256);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Owner registartion";
@@ -254,7 +246,7 @@
             // 
             this.btAddOwner.BackColor = System.Drawing.Color.PowderBlue;
             this.btAddOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddOwner.Location = new System.Drawing.Point(80, 249);
+            this.btAddOwner.Location = new System.Drawing.Point(80, 215);
             this.btAddOwner.Margin = new System.Windows.Forms.Padding(2);
             this.btAddOwner.Name = "btAddOwner";
             this.btAddOwner.Size = new System.Drawing.Size(96, 29);
@@ -514,6 +506,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(545, 256);
             this.panel2.TabIndex = 18;
+            // 
+            // showOwnersBtn
+            // 
+            this.showOwnersBtn.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.showOwnersBtn.Location = new System.Drawing.Point(73, 226);
+            this.showOwnersBtn.Name = "showOwnersBtn";
+            this.showOwnersBtn.Size = new System.Drawing.Size(124, 23);
+            this.showOwnersBtn.TabIndex = 20;
+            this.showOwnersBtn.Text = "Show owners";
+            this.showOwnersBtn.UseVisualStyleBackColor = false;
+            this.showOwnersBtn.Click += new System.EventHandler(this.showOwnersBtn_Click);
             // 
             // btSearchOwner
             // 
@@ -783,59 +786,6 @@
             this.btOverview.UseVisualStyleBackColor = false;
             this.btOverview.Click += new System.EventHandler(this.btOverview_Click);
             // 
-            // showOwnersBtn
-            // 
-            this.showOwnersBtn.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.showOwnersBtn.Location = new System.Drawing.Point(73, 226);
-            this.showOwnersBtn.Name = "showOwnersBtn";
-            this.showOwnersBtn.Size = new System.Drawing.Size(124, 23);
-            this.showOwnersBtn.TabIndex = 20;
-            this.showOwnersBtn.Text = "Show owners";
-            this.showOwnersBtn.UseVisualStyleBackColor = false;
-            this.showOwnersBtn.Click += new System.EventHandler(this.showOwnersBtn_Click);
-            // 
-            // ownersAnimalRFIDtb
-            // 
-            this.ownersAnimalRFIDtb.Location = new System.Drawing.Point(88, 180);
-            this.ownersAnimalRFIDtb.Margin = new System.Windows.Forms.Padding(2);
-            this.ownersAnimalRFIDtb.Name = "ownersAnimalRFIDtb";
-            this.ownersAnimalRFIDtb.Size = new System.Drawing.Size(152, 20);
-            this.ownersAnimalRFIDtb.TabIndex = 13;
-            // 
-            // ownersAnimalRFIDlb
-            // 
-            this.ownersAnimalRFIDlb.AutoSize = true;
-            this.ownersAnimalRFIDlb.Location = new System.Drawing.Point(11, 180);
-            this.ownersAnimalRFIDlb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ownersAnimalRFIDlb.Name = "ownersAnimalRFIDlb";
-            this.ownersAnimalRFIDlb.Size = new System.Drawing.Size(66, 13);
-            this.ownersAnimalRFIDlb.TabIndex = 12;
-            this.ownersAnimalRFIDlb.Text = "Animal RFID";
-            // 
-            // rbtnHasPet
-            // 
-            this.rbtnHasPet.AutoSize = true;
-            this.rbtnHasPet.Checked = true;
-            this.rbtnHasPet.Location = new System.Drawing.Point(14, 220);
-            this.rbtnHasPet.Name = "rbtnHasPet";
-            this.rbtnHasPet.Size = new System.Drawing.Size(79, 17);
-            this.rbtnHasPet.TabIndex = 14;
-            this.rbtnHasPet.TabStop = true;
-            this.rbtnHasPet.Text = "Owns a pet";
-            this.rbtnHasPet.UseVisualStyleBackColor = true;
-            this.rbtnHasPet.CheckedChanged += new System.EventHandler(this.rbtnHasPet_CheckedChanged);
-            // 
-            // rBtnHasNoPet
-            // 
-            this.rBtnHasNoPet.AutoSize = true;
-            this.rBtnHasNoPet.Location = new System.Drawing.Point(140, 220);
-            this.rBtnHasNoPet.Name = "rBtnHasNoPet";
-            this.rBtnHasNoPet.Size = new System.Drawing.Size(118, 17);
-            this.rBtnHasNoPet.TabIndex = 15;
-            this.rBtnHasNoPet.Text = "Does not own a pet";
-            this.rBtnHasNoPet.UseVisualStyleBackColor = true;
-            this.rBtnHasNoPet.CheckedChanged += new System.EventHandler(this.rBtnHasNoPet_CheckedChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -935,10 +885,6 @@
         private System.Windows.Forms.Button btOverview;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button showOwnersBtn;
-        private System.Windows.Forms.TextBox ownersAnimalRFIDtb;
-        private System.Windows.Forms.Label ownersAnimalRFIDlb;
-        private System.Windows.Forms.RadioButton rBtnHasNoPet;
-        private System.Windows.Forms.RadioButton rbtnHasPet;
     }
 }
 

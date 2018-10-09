@@ -17,6 +17,8 @@ namespace AnimalShelterApp
         {
             InitializeComponent();
             myShelter = new AnimalShelter("Fontys", "Rachelsmolen", "06123456", "Fontys@animalShelter.nl");
+            addOwnerTestData();
+            updateOwnerListbox(myShelter.GetAllOwners());
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -125,25 +127,16 @@ namespace AnimalShelterApp
             string lastName = tbLastName.Text;
             string phoneNumber = tbPhoneNumber.Text;
             string email = tbEmail.Text;
-            string rfid = ownersAnimalRFIDtb.Text;
 
-            Animal pet = myShelter.GetAnimal(rfid);
-
-            if (pet != null)
+            if (myShelter.SearchOwnerByPhone(phoneNumber) == null)
             {
-                myShelter.RegisterOwner(firstName, lastName, phoneNumber, email, pet);
+                myShelter.RegisterOwner(firstName, lastName, phoneNumber, email);
             }
             else
             {
-                if (rBtnHasNoPet.Checked)
-                {
-                    myShelter.RegisterOwner(firstName, lastName, phoneNumber, email);
-                }
-                else
-                {
-                    MessageBox.Show("Could not find your pet, please enter a different RFID tag number.");
-                }
-            }            
+                MessageBox.Show("Owner is already known in the system.");
+            }
+                      
         }
 
         private void btShowAnimals_Click(object sender, EventArgs e)
@@ -261,28 +254,10 @@ namespace AnimalShelterApp
         private void updateOwnerListbox(List<Owner> owners)
         {
             lbOwners.Items.Clear();
+            lbOwners.Items.Add("ID:    Name:   Phone:  E-mail:");
             foreach (Owner owner in owners)
             {
                 lbOwners.Items.Add(owner);
-            }
-        }
-
-        private void rBtnHasNoPet_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ownersAnimalRFIDtb.Enabled)
-            {
-                ownersAnimalRFIDtb.Clear();
-                ownersAnimalRFIDtb.ReadOnly = true;
-                ownersAnimalRFIDtb.Enabled = false;
-            }
-        }
-
-        private void rbtnHasPet_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!ownersAnimalRFIDtb.Enabled)
-            {
-                ownersAnimalRFIDtb.ReadOnly = false;
-                ownersAnimalRFIDtb.Enabled = true;
             }
         }
 
@@ -293,6 +268,22 @@ namespace AnimalShelterApp
             {
                 this.lbOwners.Items.Add(o);
             }
+        }
+
+        private void addOwnerTestData()
+        {
+            myShelter.RegisterOwner("Barnaby", "Jones", "0612345678", "example1@email.com");
+            myShelter.RegisterOwner("Iris", "Bonvillain", "0623456789", "emaple2@email.com");
+            myShelter.RegisterOwner("Lilias", "Bond", "0634567890", "emaple3@email.com");
+            myShelter.RegisterOwner("Stella", "Groseclose", "0645678901", "emaple4@email.com");
+            myShelter.RegisterOwner("Gert", "Ouelette", "0656789012", "emaple5@email.com");
+            myShelter.RegisterOwner("Gael", "Holtzlander", "0667890123", "emaple6@email.com");
+            myShelter.RegisterOwner("Querida", "Carlee", "0678901234", "example7@email.com");
+            myShelter.RegisterOwner("Berthe", "Olcott", "0689012345", "example8@email.com");
+            myShelter.RegisterOwner("Lorna", "Javarone", "0690123456", "example9@email.com");
+            myShelter.RegisterOwner("Betty", "Chenette", "0601234567", "example10@email.com");
+            myShelter.RegisterOwner("Katheryn", "Roal", "0611234567", "example11@email.com");
+            myShelter.RegisterOwner("Wilie", "Yarbough", "0611345678", "example12@email.com");
         }
     }
 }
