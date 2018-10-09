@@ -41,12 +41,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btAddOwner = new System.Windows.Forms.Button();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.emailLb = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.fNameLb = new System.Windows.Forms.Label();
+            this.lNameLb = new System.Windows.Forms.Label();
             this.tbLastName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.phoneNumberLb = new System.Windows.Forms.Label();
             this.tbPhoneNumber = new System.Windows.Forms.TextBox();
             this.lbAnimals = new System.Windows.Forms.ListBox();
             this.btDeleteAnimal = new System.Windows.Forms.Button();
@@ -90,6 +90,10 @@
             this.lbOverview = new System.Windows.Forms.ListBox();
             this.btOverview = new System.Windows.Forms.Button();
             this.showOwnersBtn = new System.Windows.Forms.Button();
+            this.ownersAnimalRFIDtb = new System.Windows.Forms.TextBox();
+            this.ownersAnimalRFIDlb = new System.Windows.Forms.Label();
+            this.rbtnHasPet = new System.Windows.Forms.RadioButton();
+            this.rBtnHasNoPet = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -223,20 +227,24 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.groupBox2.Controls.Add(this.rBtnHasNoPet);
+            this.groupBox2.Controls.Add(this.rbtnHasPet);
+            this.groupBox2.Controls.Add(this.ownersAnimalRFIDtb);
+            this.groupBox2.Controls.Add(this.ownersAnimalRFIDlb);
             this.groupBox2.Controls.Add(this.btAddOwner);
             this.groupBox2.Controls.Add(this.tbEmail);
-            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.emailLb);
             this.groupBox2.Controls.Add(this.tbFirstName);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.fNameLb);
+            this.groupBox2.Controls.Add(this.lNameLb);
             this.groupBox2.Controls.Add(this.tbLastName);
-            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.phoneNumberLb);
             this.groupBox2.Controls.Add(this.tbPhoneNumber);
             this.groupBox2.Location = new System.Drawing.Point(9, 329);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(266, 256);
+            this.groupBox2.Size = new System.Drawing.Size(266, 288);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Owner registartion";
@@ -246,7 +254,7 @@
             // 
             this.btAddOwner.BackColor = System.Drawing.Color.PowderBlue;
             this.btAddOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddOwner.Location = new System.Drawing.Point(80, 215);
+            this.btAddOwner.Location = new System.Drawing.Point(80, 249);
             this.btAddOwner.Margin = new System.Windows.Forms.Padding(2);
             this.btAddOwner.Name = "btAddOwner";
             this.btAddOwner.Size = new System.Drawing.Size(96, 29);
@@ -263,15 +271,15 @@
             this.tbEmail.Size = new System.Drawing.Size(152, 20);
             this.tbEmail.TabIndex = 10;
             // 
-            // label7
+            // emailLb
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 143);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Email";
+            this.emailLb.AutoSize = true;
+            this.emailLb.Location = new System.Drawing.Point(11, 143);
+            this.emailLb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.emailLb.Name = "emailLb";
+            this.emailLb.Size = new System.Drawing.Size(32, 13);
+            this.emailLb.TabIndex = 9;
+            this.emailLb.Text = "Email";
             // 
             // tbFirstName
             // 
@@ -281,25 +289,25 @@
             this.tbFirstName.Size = new System.Drawing.Size(152, 20);
             this.tbFirstName.TabIndex = 0;
             // 
-            // label4
+            // fNameLb
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 34);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "FirstName";
+            this.fNameLb.AutoSize = true;
+            this.fNameLb.Location = new System.Drawing.Point(11, 34);
+            this.fNameLb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.fNameLb.Name = "fNameLb";
+            this.fNameLb.Size = new System.Drawing.Size(54, 13);
+            this.fNameLb.TabIndex = 3;
+            this.fNameLb.Text = "FirstName";
             // 
-            // label5
+            // lNameLb
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 69);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "LastName";
+            this.lNameLb.AutoSize = true;
+            this.lNameLb.Location = new System.Drawing.Point(11, 69);
+            this.lNameLb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lNameLb.Name = "lNameLb";
+            this.lNameLb.Size = new System.Drawing.Size(55, 13);
+            this.lNameLb.TabIndex = 4;
+            this.lNameLb.Text = "LastName";
             // 
             // tbLastName
             // 
@@ -309,15 +317,15 @@
             this.tbLastName.Size = new System.Drawing.Size(152, 20);
             this.tbLastName.TabIndex = 1;
             // 
-            // label6
+            // phoneNumberLb
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 108);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "PhoneNumber";
+            this.phoneNumberLb.AutoSize = true;
+            this.phoneNumberLb.Location = new System.Drawing.Point(9, 108);
+            this.phoneNumberLb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.phoneNumberLb.Name = "phoneNumberLb";
+            this.phoneNumberLb.Size = new System.Drawing.Size(75, 13);
+            this.phoneNumberLb.TabIndex = 5;
+            this.phoneNumberLb.Text = "PhoneNumber";
             // 
             // tbPhoneNumber
             // 
@@ -786,6 +794,48 @@
             this.showOwnersBtn.UseVisualStyleBackColor = false;
             this.showOwnersBtn.Click += new System.EventHandler(this.showOwnersBtn_Click);
             // 
+            // ownersAnimalRFIDtb
+            // 
+            this.ownersAnimalRFIDtb.Location = new System.Drawing.Point(88, 180);
+            this.ownersAnimalRFIDtb.Margin = new System.Windows.Forms.Padding(2);
+            this.ownersAnimalRFIDtb.Name = "ownersAnimalRFIDtb";
+            this.ownersAnimalRFIDtb.Size = new System.Drawing.Size(152, 20);
+            this.ownersAnimalRFIDtb.TabIndex = 13;
+            // 
+            // ownersAnimalRFIDlb
+            // 
+            this.ownersAnimalRFIDlb.AutoSize = true;
+            this.ownersAnimalRFIDlb.Location = new System.Drawing.Point(11, 180);
+            this.ownersAnimalRFIDlb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ownersAnimalRFIDlb.Name = "ownersAnimalRFIDlb";
+            this.ownersAnimalRFIDlb.Size = new System.Drawing.Size(66, 13);
+            this.ownersAnimalRFIDlb.TabIndex = 12;
+            this.ownersAnimalRFIDlb.Text = "Animal RFID";
+            // 
+            // rbtnHasPet
+            // 
+            this.rbtnHasPet.AutoSize = true;
+            this.rbtnHasPet.Checked = true;
+            this.rbtnHasPet.Location = new System.Drawing.Point(14, 220);
+            this.rbtnHasPet.Name = "rbtnHasPet";
+            this.rbtnHasPet.Size = new System.Drawing.Size(79, 17);
+            this.rbtnHasPet.TabIndex = 14;
+            this.rbtnHasPet.TabStop = true;
+            this.rbtnHasPet.Text = "Owns a pet";
+            this.rbtnHasPet.UseVisualStyleBackColor = true;
+            this.rbtnHasPet.CheckedChanged += new System.EventHandler(this.rbtnHasPet_CheckedChanged);
+            // 
+            // rBtnHasNoPet
+            // 
+            this.rBtnHasNoPet.AutoSize = true;
+            this.rBtnHasNoPet.Location = new System.Drawing.Point(140, 220);
+            this.rBtnHasNoPet.Name = "rBtnHasNoPet";
+            this.rBtnHasNoPet.Size = new System.Drawing.Size(118, 17);
+            this.rBtnHasNoPet.TabIndex = 15;
+            this.rBtnHasNoPet.Text = "Does not own a pet";
+            this.rBtnHasNoPet.UseVisualStyleBackColor = true;
+            this.rBtnHasNoPet.CheckedChanged += new System.EventHandler(this.rBtnHasNoPet_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -835,13 +885,13 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tbFirstName;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label fNameLb;
+        private System.Windows.Forms.Label lNameLb;
         private System.Windows.Forms.TextBox tbLastName;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label phoneNumberLb;
         private System.Windows.Forms.TextBox tbPhoneNumber;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label emailLb;
         private System.Windows.Forms.ListBox lbAnimals;
         private System.Windows.Forms.Button btDeleteAnimal;
         private System.Windows.Forms.TextBox tbSearchAnimal;
@@ -885,6 +935,10 @@
         private System.Windows.Forms.Button btOverview;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button showOwnersBtn;
+        private System.Windows.Forms.TextBox ownersAnimalRFIDtb;
+        private System.Windows.Forms.Label ownersAnimalRFIDlb;
+        private System.Windows.Forms.RadioButton rBtnHasNoPet;
+        private System.Windows.Forms.RadioButton rbtnHasPet;
     }
 }
 

@@ -125,8 +125,25 @@ namespace AnimalShelterApp
             string lastName = tbLastName.Text;
             string phoneNumber = tbPhoneNumber.Text;
             string email = tbEmail.Text;
+            string rfid = ownersAnimalRFIDtb.Text;
 
-            myShelter.RegisterOwner(firstName, lastName, phoneNumber, email);
+            Animal pet = myShelter.GetAnimal(rfid);
+
+            if (pet != null)
+            {
+                myShelter.RegisterOwner(firstName, lastName, phoneNumber, email, pet);
+            }
+            else
+            {
+                if (rBtnHasNoPet.Checked)
+                {
+                    myShelter.RegisterOwner(firstName, lastName, phoneNumber, email);
+                }
+                else
+                {
+                    MessageBox.Show("Could not find your pet, please enter a different RFID tag number.");
+                }
+            }            
         }
 
         private void btShowAnimals_Click(object sender, EventArgs e)
@@ -247,6 +264,25 @@ namespace AnimalShelterApp
             foreach (Owner owner in owners)
             {
                 lbOwners.Items.Add(owner);
+            }
+        }
+
+        private void rBtnHasNoPet_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ownersAnimalRFIDtb.Enabled)
+            {
+                ownersAnimalRFIDtb.Clear();
+                ownersAnimalRFIDtb.ReadOnly = true;
+                ownersAnimalRFIDtb.Enabled = false;
+            }
+        }
+
+        private void rbtnHasPet_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!ownersAnimalRFIDtb.Enabled)
+            {
+                ownersAnimalRFIDtb.ReadOnly = false;
+                ownersAnimalRFIDtb.Enabled = true;
             }
         }
     }

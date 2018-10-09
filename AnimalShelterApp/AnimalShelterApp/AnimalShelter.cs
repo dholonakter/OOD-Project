@@ -77,6 +77,12 @@ namespace AnimalShelterApp
             myOwners.Add(temp);
         }
 
+        public void RegisterOwner(string firstName, string lastName, string phoneNumber, string email)
+        {
+            Owner temp = new Owner(firstName, lastName, phoneNumber, email);
+            myOwners.Add(temp);
+        }
+
         public void UpdateOwnerDetails(int ownerID, string firstName, string lastName, string phoneNumber, string email)
         {
             Owner temp = GetOwner(ownerID);

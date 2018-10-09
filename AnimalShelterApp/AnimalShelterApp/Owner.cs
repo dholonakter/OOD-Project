@@ -20,8 +20,8 @@ namespace AnimalShelterApp
         public string PhoneNumber { get; private set; }
         public string Email { get; private set; }
 
-        //constructor
-        public Owner(string firstName, string lastName, string phoneNumber, string email, Animal pet)
+        // Constructors
+        public Owner(string firstName, string lastName, string phoneNumber, string email)
         {
             idCount++;
             ID = idCount;
@@ -31,6 +31,10 @@ namespace AnimalShelterApp
             Email = email;
 
             ownersAnimals = new List<Animal>();
+        }
+
+        public Owner(string firstName, string lastName, string phoneNumber, string email, Animal pet) : this(firstName, lastName, phoneNumber, email)
+        {
             ownersAnimals.Add(pet);
         }
 
