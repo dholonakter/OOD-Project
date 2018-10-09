@@ -125,8 +125,8 @@ namespace AnimalShelterApp
             string lastName = tbLastName.Text;
             string phoneNumber = tbPhoneNumber.Text;
             string email = tbEmail.Text;
-            Owner o;
-            o = new Owner(firstName, lastName, phoneNumber, email);
+
+            myShelter.RegisterOwner(firstName, lastName, phoneNumber, email);
         }
 
         private void btShowAnimals_Click(object sender, EventArgs e)
@@ -165,19 +165,40 @@ namespace AnimalShelterApp
             }
         }
 
-        //to do ~ search in owners list
         private void btSearchOwner_Click(object sender, EventArgs e)
         {
+            List<Owner> owners;
+            string expression = textBox15.Text;
 
+            if (expression != "")
+            {
+                owners = myShelter.SearchOwnerByLastName(expression);
+                owners.Add(myShelter.SearchOwnerByEmail(expression));
+                owners.Add(myShelter.SearchOwnerByPhone(expression));
+
+                updateOwnerListbox(owners);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a string to search");
+            }
         }
 
-        //to finish 
         private void btUpdateOwner_Click(object sender, EventArgs e)
         {
             Owner o = (Owner)lbOwners.SelectedItem;
             if (o != null)
             {
-                myShelter.UpdateOwnerDetails();
+                string fName = tbNewFirstName.Text == "" ? o.FirstName : tbNewFirstName.Text,
+                       lName = tbNewLastName.Text == "" ? o.LastName : tbNewLastName.Text,
+                       phoneNumber = tbNewPhoneNumber.Text == "" ? o.PhoneNumber : tbNewPhoneNumber.Text,
+                       email = tbNewEmail.Text == "" ? o.Email : tbNewEmail.Text;
+
+                myShelter.UpdateOwnerDetails(o.ID, fName, lName, phoneNumber, email);
+            }
+            else
+            {
+                MessageBox.Show("Please select an owner you would like to update.");
             }
         }
 
@@ -187,7 +208,7 @@ namespace AnimalShelterApp
             Owner o = (Owner)lbOwners.SelectedItem;
             if(o != null)
             {
-                myShelter.RemoveOwnerDetails();
+                myShelter.RemoveOwnerDetails(o.ID);
             }
         }
 
@@ -208,6 +229,20 @@ namespace AnimalShelterApp
             foreach (Owner o in myShelter.GetAllOwners())
             {
                 this.lbOverview.Items.Add(o);
+            }
+        }
+
+        private void showOwnersBtn_Click(object sender, EventArgs e)
+        {
+            updateOwnerListbox(myShelter.GetAllOwners());
+        }
+
+        private void updateOwnerListbox(List<Owner> owners)
+        {
+            lbOwners.Items.Clear();
+            foreach (Owner owner in owners)
+            {
+                lbOwners.Items.Add(owner);
             }
         }
     }
