@@ -199,8 +199,17 @@ namespace AnimalShelterApp
             if (expression != "")
             {
                 owners = myShelter.SearchOwnerByLastName(expression);
-                owners.Add(myShelter.SearchOwnerByEmail(expression));
-                owners.Add(myShelter.SearchOwnerByPhone(expression));
+                Owner o = myShelter.SearchOwnerByEmail(expression);
+                if (o != null)
+                {
+                    owners.Add(o);
+                }
+
+                o = myShelter.SearchOwnerByPhone(expression);
+                if (o != null)
+                {
+                    owners.Add(o);
+                }
 
                 updateOwnerListbox(owners);
             }
@@ -240,6 +249,13 @@ namespace AnimalShelterApp
             {
                 myShelter.RemoveOwnerDetails(o.ID);
                 updateOwnerListbox(myShelter.GetAllOwners());
+                foreach (Control currentControl in groupBox4.Controls)
+                {
+                    if (currentControl is TextBox)
+                    {
+                        currentControl.Text = "";
+                    }
+                }
             }
             else
             {
@@ -278,7 +294,10 @@ namespace AnimalShelterApp
             lbOwners.Items.Add("ID:    Name:   Phone:  E-mail:");
             foreach (Owner owner in owners)
             {
-                lbOwners.Items.Add(owner);
+                if (owner != null)
+                {
+                    lbOwners.Items.Add(owner);
+                }
             }
         }
 

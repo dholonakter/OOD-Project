@@ -63,7 +63,7 @@
             this.btSearchAnimal = new System.Windows.Forms.Button();
             this.btShowAnimals = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.ownerCrudPanel = new System.Windows.Forms.Panel();
             this.showOwnersBtn = new System.Windows.Forms.Button();
             this.btSearchOwner = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -94,7 +94,7 @@
             this.ownerRegGrpBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.ownerCrudPanel.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -494,20 +494,20 @@
             this.label11.TabIndex = 11;
             this.label11.Text = "Serach Animal By RFID";
             // 
-            // panel2
+            // ownerCrudPanel
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel2.Controls.Add(this.showOwnersBtn);
-            this.panel2.Controls.Add(this.btSearchOwner);
-            this.panel2.Controls.Add(this.groupBox4);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.lbOwners);
-            this.panel2.Controls.Add(this.ownerSearchTb);
-            this.panel2.Location = new System.Drawing.Point(296, 329);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(545, 256);
-            this.panel2.TabIndex = 18;
+            this.ownerCrudPanel.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ownerCrudPanel.Controls.Add(this.showOwnersBtn);
+            this.ownerCrudPanel.Controls.Add(this.btSearchOwner);
+            this.ownerCrudPanel.Controls.Add(this.groupBox4);
+            this.ownerCrudPanel.Controls.Add(this.label12);
+            this.ownerCrudPanel.Controls.Add(this.lbOwners);
+            this.ownerCrudPanel.Controls.Add(this.ownerSearchTb);
+            this.ownerCrudPanel.Location = new System.Drawing.Point(296, 329);
+            this.ownerCrudPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.ownerCrudPanel.Name = "ownerCrudPanel";
+            this.ownerCrudPanel.Size = new System.Drawing.Size(545, 256);
+            this.ownerCrudPanel.TabIndex = 18;
             // 
             // showOwnersBtn
             // 
@@ -799,7 +799,7 @@
             this.Controls.Add(this.btOverview);
             this.Controls.Add(this.lbOverview);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.ownerCrudPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ownerRegGrpBox);
             this.Controls.Add(this.groupBox1);
@@ -815,8 +815,8 @@
             this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.ownerCrudPanel.ResumeLayout(false);
+            this.ownerCrudPanel.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -859,7 +859,7 @@
         private System.Windows.Forms.TextBox tbNewDescription;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel ownerCrudPanel;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btDeleteOwner;
         private System.Windows.Forms.TextBox tbNewEmail;
