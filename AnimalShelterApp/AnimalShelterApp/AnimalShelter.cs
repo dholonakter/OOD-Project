@@ -105,7 +105,6 @@ namespace AnimalShelterApp
             {
                 if (owner != null && animal != null)
                 {
-                    owner.AddPet(animal);
                     animal.AnimalsOwner = owner;
                     return true;
                 }
