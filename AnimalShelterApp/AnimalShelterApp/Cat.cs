@@ -32,11 +32,5 @@ namespace AnimalShelterApp
             }
             return 15.0;
         }
-        public override string ToString()
-        {
-            string catinfo = "";
-            catinfo = "The RFID number of cat is" + RfidNumber + ",location is" + Location + "and description is" + Description;
-            return catinfo;
-        }
     }
 }

@@ -19,7 +19,7 @@ namespace AnimalShelterApp
         private List<Animal> myAnimals;
 
         //properties
-        public string Name { get; }
+
         //constructor
         public AnimalShelter(string name, string address, string phoneNumber, string email)
         {
@@ -29,7 +29,7 @@ namespace AnimalShelterApp
             this.email = email;
             this.address = address;
             this.phoneNumber = phoneNumber;
-            this.Name = name;
+            this.name = name;
         }
 
         //methods
@@ -190,6 +190,15 @@ namespace AnimalShelterApp
                 }
             }
             return null;
+        }
+
+        public List<Animal> GetAllAnimals()
+        {
+            return this.myAnimals;
+        }
+        public List<Owner> GetAllOwners()
+        {
+            return this.myOwners;
         }
     }
 }

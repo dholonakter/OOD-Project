@@ -10,46 +10,205 @@ using System.Windows.Forms;
 
 namespace AnimalShelterApp
 {
-    public partial class animalshelterAPP : Form
+    public partial class Form1 : Form
     {
-        AnimalShelter animalShelter = null;
-        public animalshelterAPP()
+        private AnimalShelter myShelter;
+        public Form1()
         {
             InitializeComponent();
-            animalShelter = new AnimalShelter("EindhovenAnimalShelter", "Eindhoven", "068734567", "animalshelter@gmail.com");
-            Text = animalShelter.Name;
+            myShelter = new AnimalShelter("Fontys", "Rachelsmolen", "06123456", "Fontys@animalShelter.nl");
         }
 
-        private void btnAddAnimal_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            string rfid = tbanimalRfid.Text;
-            string location = tblocation.Text;
-            string description = tbdescription.Text;
-            if (animalShelter != null)
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string rfid = tbRFIDforRegistration.Text;
+            string location = tbLocation.Text;
+            string description = tbDescription.Text;
+            Animal a;
+            if(this.rbCat.Checked)
             {
-                if (rbCat.Checked)
-                {
-                   Cat cat = new Cat(rfid, location, description);
-                   animalShelter.RegisterCat(rfid, location, description);
-                    MessageBox.Show("successfully added the cat");
-                   ListOfAnimals.Items.Add(cat);
-                }
-                else
-                {
-                    Dog dog = new Dog(rfid, location, description);
-                    animalShelter.RegisterDog(rfid, location, description);
-                    MessageBox.Show("successfully added the dog");
-                    ListOfAnimals.Items.Add(dog);
-                }
-
+                a = new Cat(rfid, location, description);
+                myShelter.RegisterCat(rfid, location, description);
             }
-  
+            else
+            {
+                a = new Dog(rfid, location, description);
+                myShelter.RegisterDog(rfid, location, description);
+            }
+
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void locationUpdate_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox5_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string firstName = tbFirstName.Text;
+            string lastName = tbLastName.Text;
+            string phoneNumber = tbPhoneNumber.Text;
+            string email = tbEmail.Text;
+            Owner o;
+            o = new Owner(firstName, lastName, phoneNumber, email);
+        }
+
+        private void btShowAnimals_Click(object sender, EventArgs e)
+        {
+            this.lbAnimals.Items.Clear();
+            foreach (Animal a in this.myShelter.GetAllAnimals())
+            {
+                this.lbAnimals.Items.Add(a);
+            }
+        }
+
+        //to finish ~ get animal by RFID number
+        private void btSearchAnimal_Click(object sender, EventArgs e)
+        {
+            this.lbAnimals.Items.Clear();
+            foreach (Animal a in this.myShelter.GetAllAnimals())
+            {
+               
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Animal a = (Animal)lbAnimals.SelectedItem;
+            if (a != null)
+            {
+                myShelter.UpdateAnimalDetails(tbNewRFID.Text, tbNewDescription.Text);
+            }
+        }
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Animal a = (Animal)lbAnimals.SelectedItem;
+            if (a != null)
+            {
+                myShelter.RemoveAnimalDetails(tbNewRFID.Text);
+            }
+        }
+
+        //to do ~ search in owners list
+        private void btSearchOwner_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //to finish 
+        private void btUpdateOwner_Click(object sender, EventArgs e)
+        {
+            Owner o = (Owner)lbOwners.SelectedItem;
+            if (o != null)
+            {
+                myShelter.UpdateOwnerDetails();
+            }
+        }
+
+        //to finish
+        private void btDeleteOwner_Click(object sender, EventArgs e)
+        {
+            Owner o = (Owner)lbOwners.SelectedItem;
+            if(o != null)
+            {
+                myShelter.RemoveOwnerDetails();
+            }
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btOverview_Click(object sender, EventArgs e)
+        {
+            this.lbOverview.Items.Clear();
+            lbOverview.Items.Add("Animals:");
+            foreach (Animal a in myShelter.GetAllAnimals())
+            {
+                this.lbOverview.Items.Add(a);
+            }
+            lbOverview.Items.Add("Owners:");
+            foreach (Owner o in myShelter.GetAllOwners())
+            {
+                this.lbOverview.Items.Add(o);
+            }
         }
     }
 }

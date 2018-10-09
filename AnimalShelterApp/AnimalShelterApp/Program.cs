@@ -16,7 +16,7 @@ namespace AnimalShelterApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new animalshelterAPP());
+            Application.Run(new Form1());
         }
     }
 }
