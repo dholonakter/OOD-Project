@@ -30,12 +30,44 @@ namespace AnimalShelterApp
             if (this.rbCat.Checked)
             {
                 a = new Cat(rfid, location, description);
-                myShelter.RegisterCat(rfid, location, description);
+
+               
+
+                    myShelter.RegisterCat(rfid, location, description, Convert.ToInt32(tbxOwnerId1.Text));
+                
+
+                if (rbhasOwner.Checked)
+                {
+                
+                    //do something
+                    
+                }
+                else if(rbDoesnotHaveOwner.Checked)
+                {
+                    myShelter.RegisterCat(rfid, location, description, null);
+                    //myShelter.RegisterCat(rfid, location, description);
+                }
             }
             else
             {
                 a = new Dog(rfid, location, description);
                 myShelter.RegisterDog(rfid, location, description);
+                if (rbhasOwner.Checked)
+                {
+                    Owner owner = myShelter.GetOwner(Convert.ToInt32(tbownerId.Text));
+
+                    if (owner != null)
+                    {
+                        a.AnimalsOwner = owner;
+                        myShelter.RegisterDog(rfid, location, description);
+                    }
+                    //do something
+
+                }
+                else if (rbDoesnotHaveOwner.Checked)
+                {
+                    myShelter.RegisterCat(rfid, location, description,null);
+                }
             }
 
 
@@ -248,11 +280,11 @@ namespace AnimalShelterApp
         }
         private void AddAnimalTestData()
         {
-            myShelter.RegisterCat("B56", "Eindhoven", "something");
+            myShelter.RegisterCat("B56", "Eindhoven", "something",null);
             myShelter.RegisterDog("c56", "Eindhoven", "something");
-            myShelter.RegisterCat("T56", "Eindhoven", "something");
+            myShelter.RegisterCat("T56", "Eindhoven", "something",null);
             myShelter.RegisterDog("Y56", "Eindhoven", "something");
-            myShelter.RegisterCat("Z56", "Eindhoven", "something");
+            myShelter.RegisterCat("Z56", "Eindhoven", "something",null);
             myShelter.RegisterDog("X56", "Eindhoven", "something");
 
 

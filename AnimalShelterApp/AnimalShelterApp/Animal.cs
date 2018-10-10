@@ -42,7 +42,20 @@ namespace AnimalShelterApp
             dateBroughtIn = DateTime.Now;
             IsClaimAble = true;
         }
+        /*
+          public Animal(Owner owner)
+           {
+             
+            owner=ge
+           
 
+            // Create another constructor with owner object.
+
+            // Obtain the owner object from your form logic based on the input id.
+            // then pass it into the constructor
+            // update your list
+          }
+          */
         //methods
         // Made abstract as will be overridden by the concrete classes themselves
         // to make proper use of polymorphism.

@@ -34,13 +34,28 @@ namespace AnimalShelterApp
         }
 
         //methods
-        public void RegisterCat(string rfid, string location, string description)
+        public void RegisterCat(string rfid, string location, string description,int? ownerId)
         {
             if (GetAnimal(rfid) == null)
             {
-                Animal temp = new Cat(rfid, location, description);
-                temp.IsClaimAble = true;
-                myAnimals.Add(temp);
+                
+
+                if (ownerId.HasValue)
+                {
+                    Owner owner = GetOwner(ownerId.Value);
+                    if(owner!=null)
+                    {
+                        Animal temp = new Cat(rfid, location, description);
+                        temp.AnimalsOwner = owner;
+                        temp.IsClaimAble = false;
+                        myAnimals.Add(temp);
+                    }
+          
+                }
+                else
+                {
+
+                }
             }
             else
             {
