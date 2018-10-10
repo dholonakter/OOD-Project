@@ -67,11 +67,11 @@ namespace AnimalShelterApp
 
             if (AnimalsOwner != null)
             {
-                info = "(ID)- " + ID + "(RFID)- " + RfidNumber + "(ownerid)" + AnimalsOwner.ID + "Location" + location + " (Description) -" + Description;
+                info = "(ID)-" + ID + " (RFID)  - " + RfidNumber + "  (ownerid) - " + AnimalsOwner.ID + " (Location)-" + location + " (Description) -" + Description;
             }
             else
             {
-                info = "(ID)- " + ID + "(RFID)- " + RfidNumber + "(ownerid)- No Owner "+ "Location" + location + " (Description) -" + Description;
+                info = "(ID) -" + ID + "  (RFID)  - " + RfidNumber + "  (ownerid) - No Owner "+ "()Location" + location + " (Description) -" + Description;
             }
 
             return info;

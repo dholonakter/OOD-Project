@@ -52,6 +52,9 @@
             this.btDeleteAnimal = new System.Windows.Forms.Button();
             this.tbSearchAnimal = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.tbownerId = new System.Windows.Forms.TextBox();
+            this.OwnerIdAnimal = new System.Windows.Forms.Label();
             this.tbNewRFID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btUpdateAnimal = new System.Windows.Forms.Button();
@@ -89,9 +92,6 @@
             this.tb_adoptRFID = new System.Windows.Forms.TextBox();
             this.lbOverview = new System.Windows.Forms.ListBox();
             this.btOverview = new System.Windows.Forms.Button();
-            this.OwnerIdAnimal = new System.Windows.Forms.Label();
-            this.tbownerId = new System.Windows.Forms.TextBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.ownerRegGrpBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -108,7 +108,6 @@
             this.tbRFIDforRegistration.Name = "tbRFIDforRegistration";
             this.tbRFIDforRegistration.Size = new System.Drawing.Size(201, 22);
             this.tbRFIDforRegistration.TabIndex = 0;
-            this.tbRFIDforRegistration.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tbLocation
             // 
@@ -117,7 +116,6 @@
             this.tbLocation.Name = "tbLocation";
             this.tbLocation.Size = new System.Drawing.Size(201, 22);
             this.tbLocation.TabIndex = 1;
-            this.tbLocation.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // tbDescription
             // 
@@ -126,7 +124,6 @@
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(201, 22);
             this.tbDescription.TabIndex = 2;
-            this.tbDescription.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label1
             // 
@@ -136,7 +133,6 @@
             this.label1.Size = new System.Drawing.Size(39, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "RFID";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -146,7 +142,6 @@
             this.label2.Size = new System.Drawing.Size(62, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Location";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -156,7 +151,6 @@
             this.label3.Size = new System.Drawing.Size(79, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "Description";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btAddAnimal
             // 
@@ -169,7 +163,7 @@
             this.btAddAnimal.TabIndex = 6;
             this.btAddAnimal.Text = "Add";
             this.btAddAnimal.UseVisualStyleBackColor = false;
-            this.btAddAnimal.Click += new System.EventHandler(this.button1_Click);
+            this.btAddAnimal.Click += new System.EventHandler(this.btnAddAnimal);
             // 
             // rbCat
             // 
@@ -182,7 +176,6 @@
             this.rbCat.TabStop = true;
             this.rbCat.Text = "Cat";
             this.rbCat.UseVisualStyleBackColor = true;
-            this.rbCat.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // rbDog
             // 
@@ -195,7 +188,6 @@
             this.rbDog.TabStop = true;
             this.rbDog.Text = "Dog";
             this.rbDog.UseVisualStyleBackColor = true;
-            this.rbDog.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -217,7 +209,6 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animal Registration";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // ownerRegGrpBox
             // 
@@ -239,7 +230,6 @@
             this.ownerRegGrpBox.TabIndex = 12;
             this.ownerRegGrpBox.TabStop = false;
             this.ownerRegGrpBox.Text = "Owner registartion";
-            this.ownerRegGrpBox.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // btAddOwner
             // 
@@ -322,7 +312,6 @@
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(201, 22);
             this.tbPhoneNumber.TabIndex = 2;
-            this.tbPhoneNumber.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             this.tbPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhoneNumber_KeyPress);
             // 
             // lbAnimals
@@ -347,7 +336,7 @@
             this.btDeleteAnimal.TabIndex = 15;
             this.btDeleteAnimal.Text = "Delete";
             this.btDeleteAnimal.UseVisualStyleBackColor = false;
-            this.btDeleteAnimal.Click += new System.EventHandler(this.button3_Click_1);
+            this.btDeleteAnimal.Click += new System.EventHandler(this.btnDeleteAnimal);
             // 
             // tbSearchAnimal
             // 
@@ -379,6 +368,35 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Update Animal";
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(90, 207);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(141, 21);
+            this.radioButton2.TabIndex = 19;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "UnlinktotheOwner";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // tbownerId
+            // 
+            this.tbownerId.Enabled = false;
+            this.tbownerId.Location = new System.Drawing.Point(113, 170);
+            this.tbownerId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbownerId.Name = "tbownerId";
+            this.tbownerId.Size = new System.Drawing.Size(201, 22);
+            this.tbownerId.TabIndex = 17;
+            // 
+            // OwnerIdAnimal
+            // 
+            this.OwnerIdAnimal.AutoSize = true;
+            this.OwnerIdAnimal.Location = new System.Drawing.Point(17, 170);
+            this.OwnerIdAnimal.Name = "OwnerIdAnimal";
+            this.OwnerIdAnimal.Size = new System.Drawing.Size(64, 17);
+            this.OwnerIdAnimal.TabIndex = 16;
+            this.OwnerIdAnimal.Text = "Owner Id";
+            // 
             // tbNewRFID
             // 
             this.tbNewRFID.Location = new System.Drawing.Point(113, 38);
@@ -408,7 +426,7 @@
             this.btUpdateAnimal.TabIndex = 6;
             this.btUpdateAnimal.Text = "Update";
             this.btUpdateAnimal.UseVisualStyleBackColor = false;
-            this.btUpdateAnimal.Click += new System.EventHandler(this.button4_Click);
+            this.btUpdateAnimal.Click += new System.EventHandler(this.btnUpdateAnimal);
             // 
             // label9
             // 
@@ -463,7 +481,7 @@
             // 
             this.btSearchAnimal.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btSearchAnimal.Location = new System.Drawing.Point(551, 27);
-            this.btSearchAnimal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btSearchAnimal.Margin = new System.Windows.Forms.Padding(4);
             this.btSearchAnimal.Name = "btSearchAnimal";
             this.btSearchAnimal.Size = new System.Drawing.Size(100, 28);
             this.btSearchAnimal.TabIndex = 18;
@@ -475,7 +493,7 @@
             // 
             this.btShowAnimals.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btShowAnimals.Location = new System.Drawing.Point(43, 316);
-            this.btShowAnimals.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btShowAnimals.Margin = new System.Windows.Forms.Padding(4);
             this.btShowAnimals.Name = "btShowAnimals";
             this.btShowAnimals.Size = new System.Drawing.Size(165, 28);
             this.btShowAnimals.TabIndex = 17;
@@ -511,7 +529,7 @@
             // 
             this.showOwnersBtn.BackColor = System.Drawing.Color.PaleTurquoise;
             this.showOwnersBtn.Location = new System.Drawing.Point(97, 278);
-            this.showOwnersBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showOwnersBtn.Margin = new System.Windows.Forms.Padding(4);
             this.showOwnersBtn.Name = "showOwnersBtn";
             this.showOwnersBtn.Size = new System.Drawing.Size(165, 28);
             this.showOwnersBtn.TabIndex = 20;
@@ -523,7 +541,7 @@
             // 
             this.btSearchOwner.BackColor = System.Drawing.Color.PowderBlue;
             this.btSearchOwner.Location = new System.Drawing.Point(551, 30);
-            this.btSearchOwner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btSearchOwner.Margin = new System.Windows.Forms.Padding(4);
             this.btSearchOwner.Name = "btSearchOwner";
             this.btSearchOwner.Size = new System.Drawing.Size(100, 28);
             this.btSearchOwner.TabIndex = 19;
@@ -692,7 +710,6 @@
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Adopt Animal";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // label19
             // 
@@ -724,7 +741,6 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(0, 17);
             this.label18.TabIndex = 12;
-            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // tb_AdoptOwnerID
             // 
@@ -742,7 +758,6 @@
             this.label17.Size = new System.Drawing.Size(39, 17);
             this.label17.TabIndex = 4;
             this.label17.Text = "RFID";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // tb_adoptRFID
             // 
@@ -767,41 +782,13 @@
             // 
             this.btOverview.BackColor = System.Drawing.Color.PowderBlue;
             this.btOverview.Location = new System.Drawing.Point(1251, 305);
-            this.btOverview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btOverview.Margin = new System.Windows.Forms.Padding(4);
             this.btOverview.Name = "btOverview";
             this.btOverview.Size = new System.Drawing.Size(179, 28);
             this.btOverview.TabIndex = 21;
             this.btOverview.Text = "Generate overview";
             this.btOverview.UseVisualStyleBackColor = false;
             this.btOverview.Click += new System.EventHandler(this.btOverview_Click);
-            // 
-            // OwnerIdAnimal
-            // 
-            this.OwnerIdAnimal.AutoSize = true;
-            this.OwnerIdAnimal.Location = new System.Drawing.Point(17, 170);
-            this.OwnerIdAnimal.Name = "OwnerIdAnimal";
-            this.OwnerIdAnimal.Size = new System.Drawing.Size(64, 17);
-            this.OwnerIdAnimal.TabIndex = 16;
-            this.OwnerIdAnimal.Text = "Owner Id";
-            // 
-            // tbownerId
-            // 
-            this.tbownerId.Location = new System.Drawing.Point(113, 170);
-            this.tbownerId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbownerId.Name = "tbownerId";
-            this.tbownerId.Size = new System.Drawing.Size(201, 22);
-            this.tbownerId.TabIndex = 17;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(90, 207);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(141, 21);
-            this.radioButton2.TabIndex = 19;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "UnlinktotheOwner";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -819,7 +806,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "AnimalShelterApp";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ownerRegGrpBox.ResumeLayout(false);

@@ -72,6 +72,7 @@ namespace AnimalShelterApp
         public void UpdateAnimalDetails(string rfid, string description)
         {
             Animal temp = GetAnimal(rfid);
+
             if (temp != null)
             {
                 temp.Description = description;
