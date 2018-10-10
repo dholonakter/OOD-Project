@@ -42,7 +42,7 @@ namespace AnimalShelterApp
 
         public override string ToString()
         {
-            return $"{ID}: {FirstName} {LastName}, {PhoneNumber}, {Email}";
+            return $"{ID}: {FirstName} {LastName},{Animals.Count}, {PhoneNumber}, {Email}";
         }
 
     }

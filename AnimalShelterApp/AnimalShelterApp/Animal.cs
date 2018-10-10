@@ -12,8 +12,8 @@ namespace AnimalShelterApp
         private DateTime dateBroughtIn;
         private string location;
         // Properties
-        public string RfidNumber { get; } // Removed the setter as it's set only once upon registration (thus construction which is allowed).
-        public string Location { get { return this.location; } }
+        public string RfidNumber { get; set; } // Removed the setter as it's set only once upon registration (thus construction which is allowed).
+        public string Location { get; set; }
         public DateTime DateBroughtIn { get { return this.dateBroughtIn; } }
 
         public string Description { get; set; } // Depending on if it will ever change
@@ -32,12 +32,12 @@ namespace AnimalShelterApp
         } // Added difference as read only private property such that it can be reused where needed.
 
         //constructor
-        public Animal(string rfid, string Location, string description)
+        public Animal(string rfid, string location, string description)
         {
             idCountOfAnimal++;
             ID = idCountOfAnimal;
             RfidNumber = rfid;
-            location = Location;
+            Location = location;
             Description = description;
             dateBroughtIn = DateTime.Now;
             IsClaimAble = true;

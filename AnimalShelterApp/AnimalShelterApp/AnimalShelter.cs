@@ -39,22 +39,24 @@ namespace AnimalShelterApp
             if (GetAnimal(rfid) == null)
             {
                 
-
                 if (ownerId.HasValue)
                 {
                     Owner owner = GetOwner(ownerId.Value);
                     if(owner!=null)
                     {
-                        Animal temp = new Cat(rfid, location, description);
-                        temp.AnimalsOwner = owner;
-                        temp.IsClaimAble = false;
-                        myAnimals.Add(temp);
+                        Animal animal = new Cat(rfid, location, description);
+                        animal.AnimalsOwner = owner;
+                        animal.AnimalsOwner.Animals.Add(animal);
+                        animal.IsClaimAble = false;
+                        myAnimals.Add(animal);
                     }
           
                 }
                 else
                 {
-
+                    Animal animal = new Cat(rfid, location, description);
+                    animal.IsClaimAble = true;
+                    myAnimals.Add(animal);
                 }
             }
             else
@@ -67,12 +69,28 @@ namespace AnimalShelterApp
             }
         }
 
-        public void RegisterDog(string rfid, string location, string description) {
+        public void RegisterDog(string rfid, string location, string description, int? ownerId) {
             if (GetAnimal(rfid) == null)
             {
-                Animal temp = new Dog(rfid, location, description);
-                temp.IsClaimAble = true;
-                myAnimals.Add(temp);
+                if (ownerId.HasValue)
+                {
+                    Owner owner = GetOwner(ownerId.Value);
+                    if (owner != null)
+                    {
+                        Animal animal = new Dog(rfid, location, description);
+                        animal.AnimalsOwner = owner;
+                        animal.AnimalsOwner.Animals.Add(animal);
+                        animal.IsClaimAble = false;
+                        myAnimals.Add(animal);
+                    }
+
+                }
+                else
+                {
+                    Animal animal =new Dog(rfid, location, description);
+                    animal.IsClaimAble = true;
+                    myAnimals.Add(animal);
+                }
             }
             else
             {
@@ -84,22 +102,68 @@ namespace AnimalShelterApp
             }
         }
 
-        public void UpdateAnimalDetails(string rfid, string description)
+        public void UpdateAnimalDetails(string oldRFID,string newRFID, string location, string description,string newOwnerId)
         {
-            Animal temp = GetAnimal(rfid);
+            Animal animal = GetAnimal(oldRFID);
 
-            if (temp != null)
+            if (animal != null)
             {
-                temp.Description = description;
+                animal.RfidNumber = newRFID;
+                animal.Location = location;
+                animal.Description = description;
+                if(animal.AnimalsOwner==null)
+                {
+                    if(!string.IsNullOrEmpty(newOwnerId))
+                    {
+                        Owner newOwner = GetOwner(Convert.ToInt32(newOwnerId));
+                        if(newOwner!=null)
+                        {
+                            animal.AnimalsOwner =newOwner;
+                            animal.IsClaimAble = false;
+                            animal.AnimalsOwner.Animals.Add(animal);
+                        }
+                        
+                    }
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(newOwnerId))
+                    {
+                        if(animal.AnimalsOwner.ID!=Convert.ToInt32(newOwnerId))
+                        {
+                            Owner newOwner = GetOwner(Convert.ToInt32(newOwnerId));
+                            if (newOwner != null)
+                            {
+                                animal.AnimalsOwner = newOwner;
+                                animal.IsClaimAble = false;
+                                animal.AnimalsOwner.Animals.Add(animal);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        animal.AnimalsOwner.Animals.Remove(animal);
+                        animal.IsClaimAble = true;
+                        animal.AnimalsOwner = null;
+                    }
+                }
             }
         }
 
         public void RemoveAnimalDetails(string rfid)
         {//should the animal be removed from owner's ownersAnimals list?
-            Animal temp = GetAnimal(rfid);
-            if (temp != null)
+            Animal animal = GetAnimal(rfid);
+            if (animal != null)
             {
-                myAnimals.Remove(temp);
+                if (animal.AnimalsOwner == null)
+                {
+                    myAnimals.Remove(animal);
+                }
+                else if (animal.AnimalsOwner != null)
+                {
+                    animal.AnimalsOwner.Animals.Remove(animal);
+                    myAnimals.Remove(animal);
+                }
             }
         }
 

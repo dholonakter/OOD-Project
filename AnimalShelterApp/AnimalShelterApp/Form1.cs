@@ -13,6 +13,7 @@ namespace AnimalShelterApp
     public partial class Form1 : Form
     {
         private AnimalShelter myShelter;
+        private Animal selectedAnimal;
         public Form1()
         {
             InitializeComponent();
@@ -30,57 +31,65 @@ namespace AnimalShelterApp
             if (this.rbCat.Checked)
             {
                 a = new Cat(rfid, location, description);
-
-               
-
-                    myShelter.RegisterCat(rfid, location, description, Convert.ToInt32(tbxOwnerId1.Text));
-                
-
-                if (rbhasOwner.Checked)
+                string ownerId = tbxOwnerId.Text;
+                if (string.IsNullOrEmpty(ownerId))
                 {
-                
-                    //do something
-                    
+                    myShelter.RegisterCat(rfid, location, description,null);
+                    showAllAnimals();
+                    updateOwnerListbox(myShelter.GetAllOwners());
                 }
-                else if(rbDoesnotHaveOwner.Checked)
+                else
                 {
-                    myShelter.RegisterCat(rfid, location, description, null);
-                    //myShelter.RegisterCat(rfid, location, description);
+                    myShelter.RegisterCat(rfid, location, description, Convert.ToInt32(ownerId));
+                    showAllAnimals();
+                    updateOwnerListbox(myShelter.GetAllOwners());
                 }
+                
             }
             else
             {
                 a = new Dog(rfid, location, description);
-                myShelter.RegisterDog(rfid, location, description);
-                if (rbhasOwner.Checked)
+                string ownerId = tbxOwnerId.Text;
+                if (string.IsNullOrEmpty(ownerId))
                 {
-                    Owner owner = myShelter.GetOwner(Convert.ToInt32(tbownerId.Text));
-
-                    if (owner != null)
-                    {
-                        a.AnimalsOwner = owner;
-                        myShelter.RegisterDog(rfid, location, description);
-                    }
-                    //do something
-
+                    
+                    myShelter.RegisterDog(rfid, location, description,null);
+                    showAllAnimals();
+                    updateOwnerListbox(myShelter.GetAllOwners());
                 }
-                else if (rbDoesnotHaveOwner.Checked)
+                else
                 {
-                    myShelter.RegisterCat(rfid, location, description,null);
+                  
+                    myShelter.RegisterDog(rfid, location, description, Convert.ToInt32(ownerId));
+                    showAllAnimals();
+                    updateOwnerListbox(myShelter.GetAllOwners());
                 }
+       
             }
-
-
-
         }
-        
-         
+
+
+        private void clearNewTexboxes()
+        {
+            tbNewRFID.Clear();
+            tbNewLocation.Clear();
+            tbNewDescription.Clear();
+            tbNewOwnerId.Clear();
+        }
         private void btnUpdateAnimal(object sender, EventArgs e)
         {
-            Animal a = (Animal)lbAnimals.SelectedItem;
-            if (a != null)
+            if (selectedAnimal != null)
             {
-                myShelter.UpdateAnimalDetails(tbNewRFID.Text, tbNewDescription.Text);
+                string oldRFID = selectedAnimal.RfidNumber;
+                string newRFID = tbNewRFID.Text;
+                string location = tbNewLocation.Text;
+                string description = tbNewDescription.Text;
+                string newOwnerId = tbNewOwnerId.Text;
+                myShelter.UpdateAnimalDetails(oldRFID,newRFID,location,description,newOwnerId);
+                clearNewTexboxes();
+                selectedAnimal = null;
+                showAllAnimals();
+                updateOwnerListbox(myShelter.GetAllOwners());
             }
 
         }
@@ -92,17 +101,23 @@ namespace AnimalShelterApp
             if (a != null)
             {
                 myShelter.RemoveAnimalDetails(tbNewRFID.Text);
-
+                showAllAnimals();
+                updateOwnerListbox(myShelter.GetAllOwners());
             }
 
         }
-        private void btShowAnimals_Click(object sender, EventArgs e)
+
+        private void showAllAnimals()
         {
             this.lbAnimals.Items.Clear();
             foreach (Animal a in this.myShelter.GetAllAnimals())
             {
                 this.lbAnimals.Items.Add(a);
             }
+        }
+        private void btShowAnimals_Click(object sender, EventArgs e)
+        {
+            showAllAnimals();
         }
 
         //to finish ~ get animal by RFID number
@@ -247,7 +262,7 @@ namespace AnimalShelterApp
         private void updateOwnerListbox(List<Owner> owners)
         {
             lbOwners.Items.Clear();
-            lbOwners.Items.Add("ID:    Name:   Phone:  E-mail:");
+            lbOwners.Items.Add("ID:    Name:    NrOfAnimals:   Phone:  E-mail:");
             foreach (Owner owner in owners)
             {
                 if (owner != null)
@@ -283,12 +298,12 @@ namespace AnimalShelterApp
         }
         private void AddAnimalTestData()
         {
-            myShelter.RegisterCat("B56", "Eindhoven", "something",null);
-            myShelter.RegisterDog("c56", "Eindhoven", "something");
-            myShelter.RegisterCat("T56", "Eindhoven", "something",null);
-            myShelter.RegisterDog("Y56", "Eindhoven", "something");
-            myShelter.RegisterCat("Z56", "Eindhoven", "something",null);
-            myShelter.RegisterDog("X56", "Eindhoven", "something");
+            myShelter.RegisterCat("B56", "Eindhoven", "something", null);
+            myShelter.RegisterDog("c56", "Eindhoven", "something",null);
+            myShelter.RegisterCat("T56", "Eindhoven", "something", null);
+            myShelter.RegisterDog("Y56", "Eindhoven", "something",null);
+            myShelter.RegisterCat("Z56", "Eindhoven", "something", null);
+            myShelter.RegisterDog("X56", "Eindhoven", "something",null);
 
 
 
@@ -409,16 +424,34 @@ namespace AnimalShelterApp
         {
             if (lbAnimals.SelectedIndex >= 0)
             {
-                Animal animal = (Animal)lbAnimals.SelectedItem;
-                tb_adoptRFID.Text = animal.RfidNumber;
-                tbNewRFID.Text = animal.RfidNumber;
-                tbNewLocation.Text = animal.Location;
-                tbNewDescription.Text = animal.Description;
+                selectedAnimal = (Animal)lbAnimals.SelectedItem;
+                tb_adoptRFID.Text = selectedAnimal.RfidNumber;
+                tbNewRFID.Text = selectedAnimal.RfidNumber;
+                tbNewLocation.Text = selectedAnimal.Location;
+                tbNewDescription.Text = selectedAnimal.Description;
+                if(selectedAnimal.AnimalsOwner!=null)
+                {
+                    tbNewOwnerId.Text = selectedAnimal.AnimalsOwner.ID.ToString();
+                }
+                else
+                {
+                    tbNewOwnerId.Text = "";
+                }
+               
 
             }
 
 
         }
 
-           }
+        private void Choose_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            showAllAnimals();
+        }
+    }
 }
