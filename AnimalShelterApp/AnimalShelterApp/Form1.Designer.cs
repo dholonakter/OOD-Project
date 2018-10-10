@@ -38,6 +38,10 @@
             this.rbCat = new System.Windows.Forms.RadioButton();
             this.rbDog = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbxOwnerId1 = new System.Windows.Forms.TextBox();
+            this.rbDoesnotHaveOwner = new System.Windows.Forms.RadioButton();
+            this.rbhasOwner = new System.Windows.Forms.RadioButton();
             this.ownerRegGrpBox = new System.Windows.Forms.GroupBox();
             this.btAddOwner = new System.Windows.Forms.Button();
             this.tbEmail = new System.Windows.Forms.TextBox();
@@ -91,10 +95,6 @@
             this.tb_adoptRFID = new System.Windows.Forms.TextBox();
             this.lbOverview = new System.Windows.Forms.ListBox();
             this.btOverview = new System.Windows.Forms.Button();
-            this.rbhasOwner = new System.Windows.Forms.RadioButton();
-            this.rbDoesnotHaveOwner = new System.Windows.Forms.RadioButton();
-            this.tbxOwnerId1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.ownerRegGrpBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -106,52 +106,55 @@
             // 
             // tbRFIDforRegistration
             // 
-            this.tbRFIDforRegistration.Location = new System.Drawing.Point(113, 38);
-            this.tbRFIDforRegistration.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbRFIDforRegistration.Location = new System.Drawing.Point(85, 31);
+            this.tbRFIDforRegistration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbRFIDforRegistration.Name = "tbRFIDforRegistration";
-            this.tbRFIDforRegistration.Size = new System.Drawing.Size(201, 22);
+            this.tbRFIDforRegistration.Size = new System.Drawing.Size(152, 20);
             this.tbRFIDforRegistration.TabIndex = 0;
             // 
             // tbLocation
             // 
-            this.tbLocation.Location = new System.Drawing.Point(113, 85);
-            this.tbLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbLocation.Location = new System.Drawing.Point(85, 69);
+            this.tbLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbLocation.Name = "tbLocation";
-            this.tbLocation.Size = new System.Drawing.Size(201, 22);
+            this.tbLocation.Size = new System.Drawing.Size(152, 20);
             this.tbLocation.TabIndex = 1;
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(115, 133);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbDescription.Location = new System.Drawing.Point(86, 108);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(201, 22);
+            this.tbDescription.Size = new System.Drawing.Size(152, 20);
             this.tbDescription.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 39);
+            this.label1.Location = new System.Drawing.Point(22, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 17);
+            this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "RFID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 85);
+            this.label2.Location = new System.Drawing.Point(19, 69);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 17);
+            this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Location";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 132);
+            this.label3.Location = new System.Drawing.Point(17, 107);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 17);
+            this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Description";
             // 
@@ -159,10 +162,10 @@
             // 
             this.btAddAnimal.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btAddAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddAnimal.Location = new System.Drawing.Point(76, 280);
-            this.btAddAnimal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btAddAnimal.Location = new System.Drawing.Point(57, 228);
+            this.btAddAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btAddAnimal.Name = "btAddAnimal";
-            this.btAddAnimal.Size = new System.Drawing.Size(116, 36);
+            this.btAddAnimal.Size = new System.Drawing.Size(87, 29);
             this.btAddAnimal.TabIndex = 6;
             this.btAddAnimal.Text = "Add";
             this.btAddAnimal.UseVisualStyleBackColor = false;
@@ -171,10 +174,10 @@
             // rbCat
             // 
             this.rbCat.AutoSize = true;
-            this.rbCat.Location = new System.Drawing.Point(61, 205);
-            this.rbCat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbCat.Location = new System.Drawing.Point(46, 167);
+            this.rbCat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbCat.Name = "rbCat";
-            this.rbCat.Size = new System.Drawing.Size(50, 21);
+            this.rbCat.Size = new System.Drawing.Size(41, 17);
             this.rbCat.TabIndex = 9;
             this.rbCat.TabStop = true;
             this.rbCat.Text = "Cat";
@@ -183,10 +186,10 @@
             // rbDog
             // 
             this.rbDog.AutoSize = true;
-            this.rbDog.Location = new System.Drawing.Point(180, 199);
-            this.rbDog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbDog.Location = new System.Drawing.Point(135, 162);
+            this.rbDog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbDog.Name = "rbDog";
-            this.rbDog.Size = new System.Drawing.Size(55, 21);
+            this.rbDog.Size = new System.Drawing.Size(45, 17);
             this.rbDog.TabIndex = 10;
             this.rbDog.TabStop = true;
             this.rbDog.Text = "Dog";
@@ -208,14 +211,56 @@
             this.groupBox1.Controls.Add(this.tbLocation);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.tbDescription);
-            this.groupBox1.Location = new System.Drawing.Point(12, 25);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(9, 20);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(348, 332);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(261, 292);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animal Registration";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(22, 140);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "OwnerId";
+            // 
+            // tbxOwnerId1
+            // 
+            this.tbxOwnerId1.Location = new System.Drawing.Point(88, 140);
+            this.tbxOwnerId1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxOwnerId1.Name = "tbxOwnerId1";
+            this.tbxOwnerId1.Size = new System.Drawing.Size(152, 20);
+            this.tbxOwnerId1.TabIndex = 13;
+            // 
+            // rbDoesnotHaveOwner
+            // 
+            this.rbDoesnotHaveOwner.AutoSize = true;
+            this.rbDoesnotHaveOwner.Location = new System.Drawing.Point(124, 188);
+            this.rbDoesnotHaveOwner.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbDoesnotHaveOwner.Name = "rbDoesnotHaveOwner";
+            this.rbDoesnotHaveOwner.Size = new System.Drawing.Size(127, 17);
+            this.rbDoesnotHaveOwner.TabIndex = 12;
+            this.rbDoesnotHaveOwner.TabStop = true;
+            this.rbDoesnotHaveOwner.Text = "Does not have owner";
+            this.rbDoesnotHaveOwner.UseVisualStyleBackColor = true;
+            // 
+            // rbhasOwner
+            // 
+            this.rbhasOwner.AutoSize = true;
+            this.rbhasOwner.Location = new System.Drawing.Point(24, 188);
+            this.rbhasOwner.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbhasOwner.Name = "rbhasOwner";
+            this.rbhasOwner.Size = new System.Drawing.Size(85, 17);
+            this.rbhasOwner.TabIndex = 11;
+            this.rbhasOwner.TabStop = true;
+            this.rbhasOwner.Text = "Has a owner";
+            this.rbhasOwner.UseVisualStyleBackColor = true;
             // 
             // ownerRegGrpBox
             // 
@@ -229,11 +274,11 @@
             this.ownerRegGrpBox.Controls.Add(this.tbLastName);
             this.ownerRegGrpBox.Controls.Add(this.phoneNumberLb);
             this.ownerRegGrpBox.Controls.Add(this.tbPhoneNumber);
-            this.ownerRegGrpBox.Location = new System.Drawing.Point(12, 429);
-            this.ownerRegGrpBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ownerRegGrpBox.Location = new System.Drawing.Point(9, 349);
+            this.ownerRegGrpBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ownerRegGrpBox.Name = "ownerRegGrpBox";
-            this.ownerRegGrpBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ownerRegGrpBox.Size = new System.Drawing.Size(355, 315);
+            this.ownerRegGrpBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ownerRegGrpBox.Size = new System.Drawing.Size(266, 256);
             this.ownerRegGrpBox.TabIndex = 12;
             this.ownerRegGrpBox.TabStop = false;
             this.ownerRegGrpBox.Text = "Owner registartion";
@@ -242,10 +287,10 @@
             // 
             this.btAddOwner.BackColor = System.Drawing.Color.PowderBlue;
             this.btAddOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAddOwner.Location = new System.Drawing.Point(107, 265);
-            this.btAddOwner.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btAddOwner.Location = new System.Drawing.Point(80, 215);
+            this.btAddOwner.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btAddOwner.Name = "btAddOwner";
-            this.btAddOwner.Size = new System.Drawing.Size(128, 36);
+            this.btAddOwner.Size = new System.Drawing.Size(96, 29);
             this.btAddOwner.TabIndex = 11;
             this.btAddOwner.Text = "Add";
             this.btAddOwner.UseVisualStyleBackColor = false;
@@ -253,82 +298,85 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(117, 176);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbEmail.Location = new System.Drawing.Point(88, 143);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(201, 22);
+            this.tbEmail.Size = new System.Drawing.Size(152, 20);
             this.tbEmail.TabIndex = 10;
             // 
             // emailLb
             // 
             this.emailLb.AutoSize = true;
-            this.emailLb.Location = new System.Drawing.Point(15, 176);
+            this.emailLb.Location = new System.Drawing.Point(11, 143);
+            this.emailLb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emailLb.Name = "emailLb";
-            this.emailLb.Size = new System.Drawing.Size(42, 17);
+            this.emailLb.Size = new System.Drawing.Size(32, 13);
             this.emailLb.TabIndex = 9;
             this.emailLb.Text = "Email";
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(117, 38);
-            this.tbFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbFirstName.Location = new System.Drawing.Point(88, 31);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(201, 22);
+            this.tbFirstName.Size = new System.Drawing.Size(152, 20);
             this.tbFirstName.TabIndex = 0;
             // 
             // fNameLb
             // 
             this.fNameLb.AutoSize = true;
-            this.fNameLb.Location = new System.Drawing.Point(15, 42);
+            this.fNameLb.Location = new System.Drawing.Point(11, 34);
+            this.fNameLb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fNameLb.Name = "fNameLb";
-            this.fNameLb.Size = new System.Drawing.Size(72, 17);
+            this.fNameLb.Size = new System.Drawing.Size(54, 13);
             this.fNameLb.TabIndex = 3;
             this.fNameLb.Text = "FirstName";
             // 
             // lNameLb
             // 
             this.lNameLb.AutoSize = true;
-            this.lNameLb.Location = new System.Drawing.Point(15, 85);
+            this.lNameLb.Location = new System.Drawing.Point(11, 69);
+            this.lNameLb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lNameLb.Name = "lNameLb";
-            this.lNameLb.Size = new System.Drawing.Size(72, 17);
+            this.lNameLb.Size = new System.Drawing.Size(55, 13);
             this.lNameLb.TabIndex = 4;
             this.lNameLb.Text = "LastName";
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(117, 85);
-            this.tbLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbLastName.Location = new System.Drawing.Point(88, 69);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(201, 22);
+            this.tbLastName.Size = new System.Drawing.Size(152, 20);
             this.tbLastName.TabIndex = 1;
             // 
             // phoneNumberLb
             // 
             this.phoneNumberLb.AutoSize = true;
-            this.phoneNumberLb.Location = new System.Drawing.Point(12, 133);
+            this.phoneNumberLb.Location = new System.Drawing.Point(9, 108);
+            this.phoneNumberLb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.phoneNumberLb.Name = "phoneNumberLb";
-            this.phoneNumberLb.Size = new System.Drawing.Size(99, 17);
+            this.phoneNumberLb.Size = new System.Drawing.Size(75, 13);
             this.phoneNumberLb.TabIndex = 5;
             this.phoneNumberLb.Text = "PhoneNumber";
             // 
             // tbPhoneNumber
             // 
-            this.tbPhoneNumber.Location = new System.Drawing.Point(117, 129);
-            this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPhoneNumber.Location = new System.Drawing.Point(88, 105);
+            this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPhoneNumber.MaxLength = 10;
             this.tbPhoneNumber.Name = "tbPhoneNumber";
-            this.tbPhoneNumber.Size = new System.Drawing.Size(201, 22);
+            this.tbPhoneNumber.Size = new System.Drawing.Size(152, 20);
             this.tbPhoneNumber.TabIndex = 2;
             this.tbPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhoneNumber_KeyPress);
             // 
             // lbAnimals
             // 
             this.lbAnimals.FormattingEnabled = true;
-            this.lbAnimals.ItemHeight = 16;
-            this.lbAnimals.Location = new System.Drawing.Point(16, 60);
-            this.lbAnimals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbAnimals.Location = new System.Drawing.Point(12, 49);
+            this.lbAnimals.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbAnimals.Name = "lbAnimals";
-            this.lbAnimals.Size = new System.Drawing.Size(328, 212);
+            this.lbAnimals.Size = new System.Drawing.Size(247, 173);
             this.lbAnimals.TabIndex = 13;
             this.lbAnimals.SelectedIndexChanged += new System.EventHandler(this.lbAnimals_SelectedIndexChanged);
             // 
@@ -336,10 +384,10 @@
             // 
             this.btDeleteAnimal.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btDeleteAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDeleteAnimal.Location = new System.Drawing.Point(176, 239);
-            this.btDeleteAnimal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btDeleteAnimal.Location = new System.Drawing.Point(132, 194);
+            this.btDeleteAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btDeleteAnimal.Name = "btDeleteAnimal";
-            this.btDeleteAnimal.Size = new System.Drawing.Size(96, 33);
+            this.btDeleteAnimal.Size = new System.Drawing.Size(72, 27);
             this.btDeleteAnimal.TabIndex = 15;
             this.btDeleteAnimal.Text = "Delete";
             this.btDeleteAnimal.UseVisualStyleBackColor = false;
@@ -347,10 +395,10 @@
             // 
             // tbSearchAnimal
             // 
-            this.tbSearchAnimal.Location = new System.Drawing.Point(203, 27);
-            this.tbSearchAnimal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbSearchAnimal.Location = new System.Drawing.Point(152, 22);
+            this.tbSearchAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbSearchAnimal.Name = "tbSearchAnimal";
-            this.tbSearchAnimal.Size = new System.Drawing.Size(301, 22);
+            this.tbSearchAnimal.Size = new System.Drawing.Size(227, 20);
             this.tbSearchAnimal.TabIndex = 16;
             // 
             // groupBox3
@@ -365,11 +413,11 @@
             this.groupBox3.Controls.Add(this.tbNewLocation);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.tbNewDescription);
-            this.groupBox3.Location = new System.Drawing.Point(379, 60);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Location = new System.Drawing.Point(284, 49);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(325, 284);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(244, 231);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Update Animal";
@@ -377,36 +425,38 @@
             // tbownerId
             // 
             this.tbownerId.Enabled = false;
-            this.tbownerId.Location = new System.Drawing.Point(113, 170);
-            this.tbownerId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbownerId.Location = new System.Drawing.Point(85, 138);
+            this.tbownerId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbownerId.Name = "tbownerId";
-            this.tbownerId.Size = new System.Drawing.Size(201, 22);
+            this.tbownerId.Size = new System.Drawing.Size(152, 20);
             this.tbownerId.TabIndex = 17;
             // 
             // OwnerIdAnimal
             // 
             this.OwnerIdAnimal.AutoSize = true;
-            this.OwnerIdAnimal.Location = new System.Drawing.Point(17, 170);
+            this.OwnerIdAnimal.Location = new System.Drawing.Point(13, 138);
+            this.OwnerIdAnimal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.OwnerIdAnimal.Name = "OwnerIdAnimal";
-            this.OwnerIdAnimal.Size = new System.Drawing.Size(64, 17);
+            this.OwnerIdAnimal.Size = new System.Drawing.Size(50, 13);
             this.OwnerIdAnimal.TabIndex = 16;
             this.OwnerIdAnimal.Text = "Owner Id";
             // 
             // tbNewRFID
             // 
-            this.tbNewRFID.Location = new System.Drawing.Point(113, 38);
-            this.tbNewRFID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNewRFID.Location = new System.Drawing.Point(85, 31);
+            this.tbNewRFID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbNewRFID.Name = "tbNewRFID";
-            this.tbNewRFID.Size = new System.Drawing.Size(201, 22);
+            this.tbNewRFID.Size = new System.Drawing.Size(152, 20);
             this.tbNewRFID.TabIndex = 0;
             this.tbNewRFID.TabStop = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 38);
+            this.label8.Location = new System.Drawing.Point(14, 31);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 17);
+            this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 3;
             this.label8.Text = "RFID";
             // 
@@ -414,10 +464,10 @@
             // 
             this.btUpdateAnimal.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btUpdateAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUpdateAnimal.Location = new System.Drawing.Point(22, 241);
-            this.btUpdateAnimal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btUpdateAnimal.Location = new System.Drawing.Point(16, 196);
+            this.btUpdateAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btUpdateAnimal.Name = "btUpdateAnimal";
-            this.btUpdateAnimal.Size = new System.Drawing.Size(88, 31);
+            this.btUpdateAnimal.Size = new System.Drawing.Size(66, 25);
             this.btUpdateAnimal.TabIndex = 6;
             this.btUpdateAnimal.Text = "Update";
             this.btUpdateAnimal.UseVisualStyleBackColor = false;
@@ -426,35 +476,37 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 89);
+            this.label9.Location = new System.Drawing.Point(14, 72);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 17);
+            this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 4;
             this.label9.Text = "Location";
             // 
             // tbNewLocation
             // 
-            this.tbNewLocation.Location = new System.Drawing.Point(113, 85);
-            this.tbNewLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNewLocation.Location = new System.Drawing.Point(85, 69);
+            this.tbNewLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbNewLocation.Name = "tbNewLocation";
-            this.tbNewLocation.Size = new System.Drawing.Size(201, 22);
+            this.tbNewLocation.Size = new System.Drawing.Size(152, 20);
             this.tbNewLocation.TabIndex = 1;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(19, 135);
+            this.label10.Location = new System.Drawing.Point(14, 110);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 17);
+            this.label10.Size = new System.Drawing.Size(60, 13);
             this.label10.TabIndex = 5;
             this.label10.Text = "Description";
             // 
             // tbNewDescription
             // 
-            this.tbNewDescription.Location = new System.Drawing.Point(113, 132);
-            this.tbNewDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNewDescription.Location = new System.Drawing.Point(85, 107);
+            this.tbNewDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbNewDescription.Name = "tbNewDescription";
-            this.tbNewDescription.Size = new System.Drawing.Size(201, 22);
+            this.tbNewDescription.Size = new System.Drawing.Size(152, 20);
             this.tbNewDescription.TabIndex = 2;
             // 
             // panel1
@@ -466,19 +518,18 @@
             this.panel1.Controls.Add(this.lbAnimals);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.tbSearchAnimal);
-            this.panel1.Location = new System.Drawing.Point(395, 25);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(296, 20);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(717, 360);
+            this.panel1.Size = new System.Drawing.Size(538, 292);
             this.panel1.TabIndex = 17;
             // 
             // btSearchAnimal
             // 
             this.btSearchAnimal.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.btSearchAnimal.Location = new System.Drawing.Point(551, 27);
-            this.btSearchAnimal.Margin = new System.Windows.Forms.Padding(4);
+            this.btSearchAnimal.Location = new System.Drawing.Point(413, 22);
             this.btSearchAnimal.Name = "btSearchAnimal";
-            this.btSearchAnimal.Size = new System.Drawing.Size(100, 28);
+            this.btSearchAnimal.Size = new System.Drawing.Size(75, 23);
             this.btSearchAnimal.TabIndex = 18;
             this.btSearchAnimal.Text = "Search";
             this.btSearchAnimal.UseVisualStyleBackColor = false;
@@ -487,10 +538,9 @@
             // btShowAnimals
             // 
             this.btShowAnimals.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.btShowAnimals.Location = new System.Drawing.Point(43, 316);
-            this.btShowAnimals.Margin = new System.Windows.Forms.Padding(4);
+            this.btShowAnimals.Location = new System.Drawing.Point(32, 257);
             this.btShowAnimals.Name = "btShowAnimals";
-            this.btShowAnimals.Size = new System.Drawing.Size(165, 28);
+            this.btShowAnimals.Size = new System.Drawing.Size(124, 23);
             this.btShowAnimals.TabIndex = 17;
             this.btShowAnimals.Text = "showAnimals";
             this.btShowAnimals.UseVisualStyleBackColor = false;
@@ -499,9 +549,10 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(29, 30);
+            this.label11.Location = new System.Drawing.Point(22, 24);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(154, 17);
+            this.label11.Size = new System.Drawing.Size(118, 13);
             this.label11.TabIndex = 11;
             this.label11.Text = "Serach Animal By RFID";
             // 
@@ -514,19 +565,18 @@
             this.ownerCrudPanel.Controls.Add(this.label12);
             this.ownerCrudPanel.Controls.Add(this.lbOwners);
             this.ownerCrudPanel.Controls.Add(this.ownerSearchTb);
-            this.ownerCrudPanel.Location = new System.Drawing.Point(395, 429);
-            this.ownerCrudPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ownerCrudPanel.Location = new System.Drawing.Point(296, 349);
+            this.ownerCrudPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ownerCrudPanel.Name = "ownerCrudPanel";
-            this.ownerCrudPanel.Size = new System.Drawing.Size(727, 315);
+            this.ownerCrudPanel.Size = new System.Drawing.Size(545, 256);
             this.ownerCrudPanel.TabIndex = 18;
             // 
             // showOwnersBtn
             // 
             this.showOwnersBtn.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.showOwnersBtn.Location = new System.Drawing.Point(97, 278);
-            this.showOwnersBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.showOwnersBtn.Location = new System.Drawing.Point(73, 226);
             this.showOwnersBtn.Name = "showOwnersBtn";
-            this.showOwnersBtn.Size = new System.Drawing.Size(165, 28);
+            this.showOwnersBtn.Size = new System.Drawing.Size(124, 23);
             this.showOwnersBtn.TabIndex = 20;
             this.showOwnersBtn.Text = "Show owners";
             this.showOwnersBtn.UseVisualStyleBackColor = false;
@@ -535,10 +585,9 @@
             // btSearchOwner
             // 
             this.btSearchOwner.BackColor = System.Drawing.Color.PowderBlue;
-            this.btSearchOwner.Location = new System.Drawing.Point(551, 30);
-            this.btSearchOwner.Margin = new System.Windows.Forms.Padding(4);
+            this.btSearchOwner.Location = new System.Drawing.Point(413, 24);
             this.btSearchOwner.Name = "btSearchOwner";
-            this.btSearchOwner.Size = new System.Drawing.Size(100, 28);
+            this.btSearchOwner.Size = new System.Drawing.Size(75, 23);
             this.btSearchOwner.TabIndex = 19;
             this.btSearchOwner.Text = "Search";
             this.btSearchOwner.UseVisualStyleBackColor = false;
@@ -556,11 +605,11 @@
             this.groupBox4.Controls.Add(this.tbNewLastName);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.tbNewPhoneNumber);
-            this.groupBox4.Location = new System.Drawing.Point(363, 60);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Location = new System.Drawing.Point(272, 49);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(355, 246);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Size = new System.Drawing.Size(266, 200);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Owner registartion";
@@ -569,10 +618,10 @@
             // 
             this.btUpdateOwner.BackColor = System.Drawing.Color.PowderBlue;
             this.btUpdateOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btUpdateOwner.Location = new System.Drawing.Point(51, 210);
-            this.btUpdateOwner.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btUpdateOwner.Location = new System.Drawing.Point(38, 171);
+            this.btUpdateOwner.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btUpdateOwner.Name = "btUpdateOwner";
-            this.btUpdateOwner.Size = new System.Drawing.Size(88, 30);
+            this.btUpdateOwner.Size = new System.Drawing.Size(66, 24);
             this.btUpdateOwner.TabIndex = 12;
             this.btUpdateOwner.Text = "Update";
             this.btUpdateOwner.UseVisualStyleBackColor = false;
@@ -582,10 +631,10 @@
             // 
             this.btDeleteOwner.BackColor = System.Drawing.Color.PowderBlue;
             this.btDeleteOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btDeleteOwner.Location = new System.Drawing.Point(205, 210);
-            this.btDeleteOwner.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btDeleteOwner.Location = new System.Drawing.Point(154, 171);
+            this.btDeleteOwner.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btDeleteOwner.Name = "btDeleteOwner";
-            this.btDeleteOwner.Size = new System.Drawing.Size(100, 30);
+            this.btDeleteOwner.Size = new System.Drawing.Size(75, 24);
             this.btDeleteOwner.TabIndex = 11;
             this.btDeleteOwner.Text = "Delete";
             this.btDeleteOwner.UseVisualStyleBackColor = false;
@@ -593,99 +642,103 @@
             // 
             // tbNewEmail
             // 
-            this.tbNewEmail.Location = new System.Drawing.Point(117, 172);
-            this.tbNewEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNewEmail.Location = new System.Drawing.Point(88, 140);
+            this.tbNewEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbNewEmail.Name = "tbNewEmail";
-            this.tbNewEmail.Size = new System.Drawing.Size(201, 22);
+            this.tbNewEmail.Size = new System.Drawing.Size(152, 20);
             this.tbNewEmail.TabIndex = 10;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(13, 176);
+            this.label13.Location = new System.Drawing.Point(10, 143);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 17);
+            this.label13.Size = new System.Drawing.Size(32, 13);
             this.label13.TabIndex = 9;
             this.label13.Text = "Email";
             // 
             // tbNewFirstName
             // 
-            this.tbNewFirstName.Location = new System.Drawing.Point(117, 38);
-            this.tbNewFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNewFirstName.Location = new System.Drawing.Point(88, 31);
+            this.tbNewFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbNewFirstName.Name = "tbNewFirstName";
-            this.tbNewFirstName.Size = new System.Drawing.Size(201, 22);
+            this.tbNewFirstName.Size = new System.Drawing.Size(152, 20);
             this.tbNewFirstName.TabIndex = 0;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(13, 38);
+            this.label14.Location = new System.Drawing.Point(10, 31);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(72, 17);
+            this.label14.Size = new System.Drawing.Size(54, 13);
             this.label14.TabIndex = 3;
             this.label14.Text = "FirstName";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(13, 89);
+            this.label15.Location = new System.Drawing.Point(10, 72);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 17);
+            this.label15.Size = new System.Drawing.Size(55, 13);
             this.label15.TabIndex = 4;
             this.label15.Text = "LastName";
             // 
             // tbNewLastName
             // 
-            this.tbNewLastName.Location = new System.Drawing.Point(117, 85);
-            this.tbNewLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNewLastName.Location = new System.Drawing.Point(88, 69);
+            this.tbNewLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbNewLastName.Name = "tbNewLastName";
-            this.tbNewLastName.Size = new System.Drawing.Size(201, 22);
+            this.tbNewLastName.Size = new System.Drawing.Size(152, 20);
             this.tbNewLastName.TabIndex = 1;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(13, 132);
+            this.label16.Location = new System.Drawing.Point(10, 107);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(99, 17);
+            this.label16.Size = new System.Drawing.Size(75, 13);
             this.label16.TabIndex = 5;
             this.label16.Text = "PhoneNumber";
             // 
             // tbNewPhoneNumber
             // 
-            this.tbNewPhoneNumber.Location = new System.Drawing.Point(117, 129);
-            this.tbNewPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNewPhoneNumber.Location = new System.Drawing.Point(88, 105);
+            this.tbNewPhoneNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbNewPhoneNumber.Name = "tbNewPhoneNumber";
-            this.tbNewPhoneNumber.Size = new System.Drawing.Size(201, 22);
+            this.tbNewPhoneNumber.Size = new System.Drawing.Size(152, 20);
             this.tbNewPhoneNumber.TabIndex = 2;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(29, 30);
+            this.label12.Location = new System.Drawing.Point(22, 24);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 17);
+            this.label12.Size = new System.Drawing.Size(75, 13);
             this.label12.TabIndex = 11;
             this.label12.Text = "Search Owner";
             // 
             // lbOwners
             // 
             this.lbOwners.FormattingEnabled = true;
-            this.lbOwners.ItemHeight = 16;
-            this.lbOwners.Location = new System.Drawing.Point(16, 60);
-            this.lbOwners.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbOwners.Location = new System.Drawing.Point(12, 49);
+            this.lbOwners.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbOwners.Name = "lbOwners";
             this.lbOwners.ScrollAlwaysVisible = true;
-            this.lbOwners.Size = new System.Drawing.Size(328, 212);
+            this.lbOwners.Size = new System.Drawing.Size(247, 173);
             this.lbOwners.TabIndex = 13;
             this.lbOwners.SelectedIndexChanged += new System.EventHandler(this.lbOwners_SelectedIndexChanged);
             // 
             // ownerSearchTb
             // 
-            this.ownerSearchTb.Location = new System.Drawing.Point(203, 30);
-            this.ownerSearchTb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ownerSearchTb.Location = new System.Drawing.Point(152, 24);
+            this.ownerSearchTb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ownerSearchTb.Name = "ownerSearchTb";
-            this.ownerSearchTb.Size = new System.Drawing.Size(301, 22);
+            this.ownerSearchTb.Size = new System.Drawing.Size(227, 20);
             this.ownerSearchTb.TabIndex = 16;
             // 
             // groupBox5
@@ -697,11 +750,11 @@
             this.groupBox5.Controls.Add(this.tb_AdoptOwnerID);
             this.groupBox5.Controls.Add(this.label17);
             this.groupBox5.Controls.Add(this.tb_adoptRFID);
-            this.groupBox5.Location = new System.Drawing.Point(1141, 429);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Location = new System.Drawing.Point(856, 349);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(397, 315);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Size = new System.Drawing.Size(298, 256);
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Adopt Animal";
@@ -709,10 +762,9 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(31, 128);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(23, 104);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(49, 17);
+            this.label19.Size = new System.Drawing.Size(38, 13);
             this.label19.TabIndex = 18;
             this.label19.Text = "Owner";
             // 
@@ -720,10 +772,10 @@
             // 
             this.btnClaim.BackColor = System.Drawing.Color.PowderBlue;
             this.btnClaim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClaim.Location = new System.Drawing.Point(161, 236);
-            this.btnClaim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClaim.Location = new System.Drawing.Point(121, 192);
+            this.btnClaim.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClaim.Name = "btnClaim";
-            this.btnClaim.Size = new System.Drawing.Size(99, 41);
+            this.btnClaim.Size = new System.Drawing.Size(74, 33);
             this.btnClaim.TabIndex = 17;
             this.btnClaim.Text = "Claim";
             this.btnClaim.UseVisualStyleBackColor = false;
@@ -732,103 +784,65 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(31, 124);
+            this.label18.Location = new System.Drawing.Point(23, 101);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(0, 17);
+            this.label18.Size = new System.Drawing.Size(0, 13);
             this.label18.TabIndex = 12;
             // 
             // tb_AdoptOwnerID
             // 
-            this.tb_AdoptOwnerID.Location = new System.Drawing.Point(109, 124);
-            this.tb_AdoptOwnerID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_AdoptOwnerID.Location = new System.Drawing.Point(82, 101);
+            this.tb_AdoptOwnerID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_AdoptOwnerID.Name = "tb_AdoptOwnerID";
-            this.tb_AdoptOwnerID.Size = new System.Drawing.Size(201, 22);
+            this.tb_AdoptOwnerID.Size = new System.Drawing.Size(152, 20);
             this.tb_AdoptOwnerID.TabIndex = 12;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(31, 73);
+            this.label17.Location = new System.Drawing.Point(23, 59);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 17);
+            this.label17.Size = new System.Drawing.Size(32, 13);
             this.label17.TabIndex = 4;
             this.label17.Text = "RFID";
             // 
             // tb_adoptRFID
             // 
-            this.tb_adoptRFID.Location = new System.Drawing.Point(109, 73);
-            this.tb_adoptRFID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_adoptRFID.Location = new System.Drawing.Point(82, 59);
+            this.tb_adoptRFID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tb_adoptRFID.Name = "tb_adoptRFID";
-            this.tb_adoptRFID.Size = new System.Drawing.Size(201, 22);
+            this.tb_adoptRFID.Size = new System.Drawing.Size(152, 20);
             this.tb_adoptRFID.TabIndex = 1;
             // 
             // lbOverview
             // 
             this.lbOverview.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbOverview.FormattingEnabled = true;
-            this.lbOverview.ItemHeight = 16;
-            this.lbOverview.Location = new System.Drawing.Point(1141, 25);
-            this.lbOverview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lbOverview.Location = new System.Drawing.Point(856, 20);
+            this.lbOverview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbOverview.Name = "lbOverview";
-            this.lbOverview.Size = new System.Drawing.Size(396, 260);
+            this.lbOverview.Size = new System.Drawing.Size(298, 212);
             this.lbOverview.TabIndex = 20;
             // 
             // btOverview
             // 
             this.btOverview.BackColor = System.Drawing.Color.PowderBlue;
-            this.btOverview.Location = new System.Drawing.Point(1251, 305);
-            this.btOverview.Margin = new System.Windows.Forms.Padding(4);
+            this.btOverview.Location = new System.Drawing.Point(938, 263);
             this.btOverview.Name = "btOverview";
-            this.btOverview.Size = new System.Drawing.Size(179, 28);
+            this.btOverview.Size = new System.Drawing.Size(134, 23);
             this.btOverview.TabIndex = 21;
             this.btOverview.Text = "Generate overview";
             this.btOverview.UseVisualStyleBackColor = false;
             this.btOverview.Click += new System.EventHandler(this.btOverview_Click);
             // 
-            // rbhasOwner
-            // 
-            this.rbhasOwner.AutoSize = true;
-            this.rbhasOwner.Location = new System.Drawing.Point(32, 231);
-            this.rbhasOwner.Name = "rbhasOwner";
-            this.rbhasOwner.Size = new System.Drawing.Size(108, 21);
-            this.rbhasOwner.TabIndex = 11;
-            this.rbhasOwner.TabStop = true;
-            this.rbhasOwner.Text = "Has a owner";
-            this.rbhasOwner.UseVisualStyleBackColor = true;
-            // 
-            // rbDoesnotHaveOwner
-            // 
-            this.rbDoesnotHaveOwner.AutoSize = true;
-            this.rbDoesnotHaveOwner.Location = new System.Drawing.Point(165, 231);
-            this.rbDoesnotHaveOwner.Name = "rbDoesnotHaveOwner";
-            this.rbDoesnotHaveOwner.Size = new System.Drawing.Size(163, 21);
-            this.rbDoesnotHaveOwner.TabIndex = 12;
-            this.rbDoesnotHaveOwner.TabStop = true;
-            this.rbDoesnotHaveOwner.Text = "Does not have owner";
-            this.rbDoesnotHaveOwner.UseVisualStyleBackColor = true;
-            // 
-            // tbxOwnerId1
-            // 
-            this.tbxOwnerId1.Location = new System.Drawing.Point(117, 172);
-            this.tbxOwnerId1.Name = "tbxOwnerId1";
-            this.tbxOwnerId1.Size = new System.Drawing.Size(201, 22);
-            this.tbxOwnerId1.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 172);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 17);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "OwnerId";
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(1595, 802);
+            this.ClientSize = new System.Drawing.Size(1196, 652);
             this.Controls.Add(this.btOverview);
             this.Controls.Add(this.lbOverview);
             this.Controls.Add(this.groupBox5);
@@ -836,7 +850,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ownerRegGrpBox);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "AnimalShelterApp";
             this.groupBox1.ResumeLayout(false);

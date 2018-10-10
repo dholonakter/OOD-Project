@@ -225,11 +225,14 @@ namespace AnimalShelterApp
         {
             this.lbOverview.Items.Clear();
             lbOverview.Items.Add("Animals:");
+            lbOverview.Items.Add("");
             foreach (Animal a in myShelter.GetAllAnimals())
             {
                 this.lbOverview.Items.Add(a);
             }
+            lbOverview.Items.Add("");
             lbOverview.Items.Add("Owners:");
+            lbOverview.Items.Add("");
             foreach (Owner o in myShelter.GetAllOwners())
             {
                 this.lbOverview.Items.Add(o);
